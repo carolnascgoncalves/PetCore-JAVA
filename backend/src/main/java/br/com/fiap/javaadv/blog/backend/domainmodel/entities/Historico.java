@@ -1,0 +1,46 @@
+package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.*;
+
+import java.sql.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
+
+@Entity
+@Table(name="historico_petcore")
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
+public class Historico {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private @Getter @Setter UUID id;
+
+    @NotNull(message = "A data é obrigatória")
+    @Column(name="DATA_hist",nullable = false)
+    private @Getter @Setter Date data;
+
+    @Column(name="STATUS_hist", length = 15)
+    private @Getter @Setter String status;
+
+
+    //Relacionamentos
+    //pet (1:1)
+    @OneToOne(mappedBy = "historico")
+    private @Getter @Setter Pet pet;
+
+    //relatorio(1:n)
+    @OneToMany(mappedBy = "historico", fetch = FetchType.LAZY)
+    private @Getter @Setter Set<Relatorio> relatorios;
+
+    //prontuario(1:n)
+    @OneToMany(mappedBy = "historico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private @Getter @Setter Set<Prontuario> prontuario;
+
+}
