@@ -50,12 +50,4 @@ public class Receita {
             inverseJoinColumns = @JoinColumn(name="ID_medic_fk")
     )
     private @Getter @Setter Set<Medicamento> medicamentos;
-
-
-    //FOREIGN KEY
-    //fk pet
-    @ManyToOne
-    @JoinColumn(name = "ID_pet")
-    private Pet pet;
-
 }

@@ -45,16 +45,4 @@ public class Exame {
     @ManyToOne
     @JoinColumn(name = "ID_pront")
     private Prontuario prontuario;
-
-    //exame(n:1)
-    @ManyToOne
-    @JoinColumn(name = "ID_ex")
-    private Exame exame;
-
-
-    //FOREIGN KEY
-    //fk pet (N:1)
-    @ManyToOne
-    @JoinColumn(name = "ID_pet")
-    private Pet pet;
 }

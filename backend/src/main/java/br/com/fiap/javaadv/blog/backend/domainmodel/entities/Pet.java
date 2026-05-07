@@ -68,15 +68,4 @@ public class Pet {
     @OneToOne
     @JoinColumn(name = "ID_hist")
     private @Getter @Setter Historico historico;
-
-    //---------
-
-    //FOREIGN KEYS
-    //fk exames(1:n)
-    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Exame> exames;
-
-    //fk receitas(1:n)
-    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Receita> receitas;
 }

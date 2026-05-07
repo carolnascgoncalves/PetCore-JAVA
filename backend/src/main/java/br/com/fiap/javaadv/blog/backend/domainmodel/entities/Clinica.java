@@ -32,13 +32,8 @@ public class Clinica {
 
     //Relacionamentos
     //relatorio (n:n)
-    @ManyToMany( fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "cli_rel_petcore",
-            joinColumns = @JoinColumn(name="ID_cli"),
-            inverseJoinColumns = @JoinColumn(name="ID_rel")
-    )
-    private @Getter @Setter Set<Relatorio> relatorios;
+    @ManyToMany( mappedBy = "clinicas", fetch = FetchType.LAZY)
+    private @Getter @Setter Set<Tutor> tutores;
 
     //endereco(1:1)
     @OneToOne

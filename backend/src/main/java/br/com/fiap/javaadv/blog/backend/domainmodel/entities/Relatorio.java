@@ -36,6 +36,12 @@ public class Relatorio {
     private Medico medico;
 
     //clinica (n:n)
-    @ManyToMany( mappedBy = "relatorios", fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Tutor> tutores;
+    @ManyToMany( fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "rel_cli_petcore",
+            joinColumns = @JoinColumn(name="ID_rel"),
+            inverseJoinColumns = @JoinColumn(name="ID_cli")
+    )
+    private @Getter @Setter Set<Clinica> clinicas;
+
 }

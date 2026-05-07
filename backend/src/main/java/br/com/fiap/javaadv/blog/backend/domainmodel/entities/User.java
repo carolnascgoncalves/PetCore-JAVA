@@ -53,6 +53,9 @@ public class User extends Object{
     )
     private @Getter @Setter Set<Role> roles;
 
+    public User(UUID uuid, String sampleName, String sampleEMail, String s3kr3t, Object o, Object o1, Object o2) {
+    }
+
 
     @Override
     public boolean equals(Object o) {

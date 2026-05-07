@@ -59,13 +59,19 @@ public class Medico {
 
 
     //Relacionamentos
-    //receita (1:n)
+    //relatorio
     @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Relatorio> relatorios;
 
+    //receita (1:n)
+    @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
+    private @Getter @Setter Set<Receita> receitas;
+
+    //prontuario (1:n)
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private @Getter @Setter Set<Prontuario> prontuarios;
 
+    //exame (1:n)
     @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Exame> exames;
 }
