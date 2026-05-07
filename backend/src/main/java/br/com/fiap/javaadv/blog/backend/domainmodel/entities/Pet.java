@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
 
+import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,9 +8,10 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name="pet_petcore")
@@ -54,7 +56,7 @@ public class Pet {
     @NotBlank(message= "O sexo é obrigatorio")
     @Size( max=1, message="O sexo deve ter no maximo 1 caractere")
     @Column(name="SEXO_pet", length = 1, nullable = false)
-    private @Getter @Setter char sexo;
+    private @Getter @Setter SexoEnum sexo;
 
     @Column(name="STATUS_pet")
     private @Getter @Setter boolean status;
@@ -68,4 +70,15 @@ public class Pet {
     @OneToOne
     @JoinColumn(name = "ID_hist")
     private @Getter @Setter Historico historico;
+
+
+    //Métodos
+
+
+    public static int calcularIdade(Date dtNasc){
+        LocalDate nasc = dtNasc.toLocalDate();
+        LocalDate hj = LocalDate.now();
+
+        return Period.between(nasc, hj).getYears();
+    }
 }
