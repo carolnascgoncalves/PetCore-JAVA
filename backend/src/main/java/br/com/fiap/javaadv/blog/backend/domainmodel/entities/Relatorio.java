@@ -27,12 +27,12 @@ public class Relatorio {
     //Relacionamentos
     //historico(n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_hist")
+    @JoinColumn(name = "ID_hist_(PK)")
     private @Getter @Setter Historico historico;
 
     //medico(N:1)
     @ManyToOne
-    @JoinColumn(name = "ID_med")
+    @JoinColumn(name = "ID_med_(PK)")
     private @Getter @Setter Medico medico;
 
     //clinica (n:n)

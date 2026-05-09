@@ -72,8 +72,10 @@ public class Pet {
 
     //historico(1:1)
     @OneToOne
-    @JoinColumn(name = "ID_hist")
+    @JoinColumn(name = "ID_hist_(PK)")
     private @Getter @Setter Historico historico;
+
+
 
     public int calcularIdade() {
         LocalDate nascimento = dataNascimento.toLocalDate();

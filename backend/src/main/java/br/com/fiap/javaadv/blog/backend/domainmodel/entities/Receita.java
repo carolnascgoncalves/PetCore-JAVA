@@ -34,20 +34,20 @@ public class Receita {
     //Relacionamentos
     //medico (n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_med")
+    @JoinColumn(name = "ID_med_(PK)")
     private @Getter @Setter Medico medico;
 
     //prontuario (n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_pront")
+    @JoinColumn(name = "ID_pront_(PK)")
     private @Getter @Setter Prontuario prontuario;
 
     //medicamento (n:n)
     @ManyToMany
     @JoinTable(
             name="rec_medic_petcore",
-            joinColumns = @JoinColumn(name = "ID_rec_fk"),
-            inverseJoinColumns = @JoinColumn(name="ID_medic_fk")
+            joinColumns = @JoinColumn(name = "ID_rec_(FK)"),
+            inverseJoinColumns = @JoinColumn(name="ID_medic_(FK)")
     )
     private @Getter @Setter Set<Medicamento> medicamentos;
 }

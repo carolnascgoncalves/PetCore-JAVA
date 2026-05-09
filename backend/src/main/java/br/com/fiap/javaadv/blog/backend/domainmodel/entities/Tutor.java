@@ -61,8 +61,8 @@ public class Tutor {
     @ManyToMany
     @JoinTable(
             name="tut_pet_petcore",
-            joinColumns = @JoinColumn(name="ID_pet_fk"),
-            inverseJoinColumns = @JoinColumn(name="ID_tut_fk")
+            joinColumns = @JoinColumn(name="ID_pet_(FK)"),
+            inverseJoinColumns = @JoinColumn(name="ID_tut_(FK)")
     )
     private @Getter @Setter Set<Pet> pets = new HashSet<>();
 }

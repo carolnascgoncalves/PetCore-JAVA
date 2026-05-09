@@ -38,12 +38,12 @@ public class Exame {
     //Relacionamentos
     //medico(n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_med")
+    @JoinColumn(name = "ID_med_(PK)")
     private @Getter @Setter Medico medico;
 
     //prontuario(n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_pront")
+    @JoinColumn(name = "ID_pront_(PK)")
     private @Getter @Setter Prontuario prontuario;
 
 

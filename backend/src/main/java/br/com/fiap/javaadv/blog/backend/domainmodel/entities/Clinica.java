@@ -35,13 +35,13 @@ public class Clinica {
     @ManyToMany( fetch = FetchType.LAZY)
     @JoinTable(
             name = "cli_rel_petcore",
-            joinColumns = @JoinColumn(name="ID_cli"),
-            inverseJoinColumns = @JoinColumn(name="ID_rel")
+            joinColumns = @JoinColumn(name="ID_cli_(FK)"),
+            inverseJoinColumns = @JoinColumn(name="ID_rel_(FK)")
     )
     private @Getter @Setter Set<Relatorio> relatorios;
 
     //endereco(1:1)
     @OneToOne
-    @JoinColumn( name = "ID_end")
+    @JoinColumn( name = "ID_end_(PK)")
     private @Getter @Setter Endereco endereco;
 }

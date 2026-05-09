@@ -34,11 +34,11 @@ public class Prontuario {
     //Relacionamentos
     //medico (n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_med")
+    @JoinColumn(name = "ID_med_(PK)")
     private @Getter @Setter Medico medico;
 
     //exame (1:n)
-    @OneToMany(mappedBy = "exame", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private @Getter @Setter Set<Exame> exames;
 
     //receita (1:n)
@@ -47,7 +47,7 @@ public class Prontuario {
 
     //historico (n:1)
     @ManyToOne
-    @JoinColumn(name = "ID_hist")
+    @JoinColumn(name = "ID_hist_(PK)")
     private @Getter @Setter Historico historico;
 
 }
