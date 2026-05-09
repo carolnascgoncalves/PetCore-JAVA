@@ -28,12 +28,12 @@ public class Relatorio {
     //historico(n:1)
     @ManyToOne
     @JoinColumn(name = "ID_hist")
-    private Historico historico;
+    private @Getter @Setter Historico historico;
 
     //medico(N:1)
     @ManyToOne
     @JoinColumn(name = "ID_med")
-    private Medico medico;
+    private @Getter @Setter Medico medico;
 
     //clinica (n:n)
     @ManyToMany( mappedBy = "relatorios", fetch = FetchType.LAZY)

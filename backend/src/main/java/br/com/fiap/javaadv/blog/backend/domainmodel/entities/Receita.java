@@ -35,12 +35,12 @@ public class Receita {
     //medico (n:1)
     @ManyToOne
     @JoinColumn(name = "ID_med")
-    private Medico medico;
+    private @Getter @Setter Medico medico;
 
     //prontuario (n:1)
     @ManyToOne
     @JoinColumn(name = "ID_pront")
-    private Prontuario prontuario;
+    private @Getter @Setter Prontuario prontuario;
 
     //medicamento (n:n)
     @ManyToMany
@@ -50,12 +50,4 @@ public class Receita {
             inverseJoinColumns = @JoinColumn(name="ID_medic_fk")
     )
     private @Getter @Setter Set<Medicamento> medicamentos;
-
-
-    //FOREIGN KEY
-    //fk pet
-    @ManyToOne
-    @JoinColumn(name = "ID_pet")
-    private Pet pet;
-
 }

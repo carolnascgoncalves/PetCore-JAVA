@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -41,6 +42,6 @@ public class Historico {
 
     //prontuario(1:n)
     @OneToMany(mappedBy = "historico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Prontuario> prontuario;
+    private @Getter @Setter Set<Prontuario> prontuarios;
 
 }

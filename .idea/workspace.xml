@@ -10,9 +10,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3DLeTg8NhoMXUYgf7yGOcHsxH5G" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,9 +23,12 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/2026_fiap_2tdspj"
+    "last_opened_file_path": "C:/Users/carol/OneDrive/Área de Trabalho/FIAP/Challenge - Clyvo/PetCore-JAVA",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="TaskManager">
@@ -35,6 +38,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778065787053</updated>
+      <workItem from="1778356143070" duration="27000" />
     </task>
     <servers />
   </component>

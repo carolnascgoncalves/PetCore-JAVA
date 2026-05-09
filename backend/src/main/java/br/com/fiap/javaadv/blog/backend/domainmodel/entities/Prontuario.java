@@ -35,7 +35,7 @@ public class Prontuario {
     //medico (n:1)
     @ManyToOne
     @JoinColumn(name = "ID_med")
-    private Medico medico;
+    private @Getter @Setter Medico medico;
 
     //exame (1:n)
     @OneToMany(mappedBy = "exame", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -48,17 +48,6 @@ public class Prontuario {
     //historico (n:1)
     @ManyToOne
     @JoinColumn(name = "ID_hist")
-    private Historico historico;
+    private @Getter @Setter Historico historico;
 
-
-    //FOREIGN KEYS
-    //fk pet (N:1)
-    @ManyToOne
-    @JoinColumn(name = "ID_pet")
-    private Pet pet;
-
-    //fk tutor (N:1)
-    @ManyToOne
-    @JoinColumn(name = "ID_tutor")
-    private Tutor tutor;
 }

@@ -1,9 +1,8 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Profile;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Tutor;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
-import jakarta.validation.constraints.*;
+
 import lombok.*;
 
 import java.sql.Date;
@@ -11,29 +10,34 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TutorCreateRequest {
+public class MedicoCreateRequest {
     private @Getter @Setter String nome;
 
     private @Getter @Setter Date dataNascimento;
 
     private @Getter @Setter String telefone;
 
-    private @Getter @Setter SexoEnum sexo;
-
     private @Getter @Setter String email;
+
+    private @Getter @Setter SexoEnum sexo;
 
     private @Getter @Setter String senha;
 
-    public static Tutor toEntity(final TutorCreateRequest dto) {
+    private @Getter @Setter String especialidade;
 
-        return Tutor.builder()
+    private @Getter @Setter String urlImg;
+
+    public static Medico toEntity(final MedicoCreateRequest dto) {
+
+        return Medico.builder()
                 .nome(dto.getNome())
                 .dataNascimento(dto.getDataNascimento())
                 .telefone(dto.getTelefone())
-                .sexo(dto.getSexo())
                 .email(dto.getEmail())
+                .sexo(dto.getSexo())
                 .senha(dto.getSenha())
+                .especialidade(dto.getEspecialidade())
+                .urlImg(dto.getUrlImg())
                 .build();
     }
 }
-

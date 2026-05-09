@@ -39,22 +39,12 @@ public class Exame {
     //medico(n:1)
     @ManyToOne
     @JoinColumn(name = "ID_med")
-    private Medico medico;
+    private @Getter @Setter Medico medico;
 
     //prontuario(n:1)
     @ManyToOne
     @JoinColumn(name = "ID_pront")
-    private Prontuario prontuario;
-
-    //exame(n:1)
-    @ManyToOne
-    @JoinColumn(name = "ID_ex")
-    private Exame exame;
+    private @Getter @Setter Prontuario prontuario;
 
 
-    //FOREIGN KEY
-    //fk pet (N:1)
-    @ManyToOne
-    @JoinColumn(name = "ID_pet")
-    private Pet pet;
 }

@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
 
+import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -45,7 +46,7 @@ public class Medico {
     @NotBlank(message= "O sexo é obrigatorio")
     @Size( max=1, message="O sexo deve ter no maximo 1 caractere")
     @Column(name="SEXO_med", length = 1, nullable = false)
-    private @Getter @Setter char sexo;
+    private @Getter @Setter SexoEnum sexo;
 
     @NotBlank(message="A senha é obrigatoria")
     @Size( min=8, message="O senha deve ter ao menos 8 caracteres.")
@@ -57,6 +58,8 @@ public class Medico {
     @Column(name="ESPEC_med", length = 100, nullable = false)
     private @Getter @Setter String especialidade;
 
+    @Column(name="URL_IMG_med")
+    private @Getter @Setter String urlImg;
 
     //Relacionamentos
     //receita (1:n)

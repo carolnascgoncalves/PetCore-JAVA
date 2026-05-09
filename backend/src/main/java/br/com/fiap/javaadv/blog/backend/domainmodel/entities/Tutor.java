@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
 
+import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -35,7 +36,7 @@ public class Tutor {
     @NotBlank(message= "O telefone é obrigatorio")
     @Size(max=11, message="O telefone deve ter no máximo 11 caracteres")
     @Column(name="TEL_tut", length = 11, nullable = false)
-    private @Getter @Setter char telefone;
+    private @Getter @Setter String telefone;
 
     @NotBlank( message = "O email é obrigatorio")
     @Email(message="O email deve ser válido")
@@ -46,13 +47,15 @@ public class Tutor {
     @NotBlank(message= "O sexo é obrigatorio")
     @Size( max=1, message="O sexo deve ter no maximo 1 caractere")
     @Column(name="SEXO_tut", length = 1, nullable = false)
-    private @Getter @Setter char sexo;
+    private @Getter @Setter SexoEnum sexo;
 
     @NotBlank(message="A senha é obrigatoria")
     @Size( min=8, message="O senha deve ter ao menos 8 caracteres.")
     @Column( name = "SENHA_tut", length = 30, nullable = false)
     private @Getter @Setter String senha;
 
+    @Column(name="URL_IMG_tut")
+    private @Getter @Setter String urlImg;
 
     // Relacionamentos
     @ManyToMany
