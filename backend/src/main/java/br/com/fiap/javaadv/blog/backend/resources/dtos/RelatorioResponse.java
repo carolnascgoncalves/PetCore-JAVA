@@ -21,16 +21,8 @@ public class RelatorioResponse {
         return RelatorioResponse.builder()
                 .id(relatorio.getId())
                 .observacao(relatorio.getObservacao())
-                .idHist(
-                        relatorio.getHistorico() != null
-                                ? relatorio.getHistorico().getId()
-                                : null
-                )
-                .idHist(
-                relatorio.getMedico() != null
-                        ? relatorio.getHistorico().getId()
-                        : null
-                )
+                .idHist(relatorio.getHistorico() != null ? relatorio.getHistorico().getId() : null)
+                .idHist(relatorio.getMedico() != null ? relatorio.getHistorico().getId() : null)
                 .build();
     }
 }

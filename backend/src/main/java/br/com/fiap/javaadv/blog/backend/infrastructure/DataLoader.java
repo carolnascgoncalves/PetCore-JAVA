@@ -1,7 +1,5 @@
 package br.com.fiap.javaadv.blog.backend.infrastructure;
 
-import br.com.fiap.javaadv.blog.backend.datasource.repositories.ProfileRepository;
-import br.com.fiap.javaadv.blog.backend.datasource.repositories.UserRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Profile;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.User;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +13,7 @@ import java.util.List;
 
 @Configuration
 public class DataLoader {
-
+/*
     @Bean
     CommandLineRunner initData(ProfileRepository profileRepository, UserRepository userRepository){
         return args -> {
@@ -82,4 +80,6 @@ public class DataLoader {
             profileRepository.saveAll(profiles);
         };
     }
+    */
+
 }

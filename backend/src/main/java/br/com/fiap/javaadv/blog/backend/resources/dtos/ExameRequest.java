@@ -1,6 +1,8 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Exame;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Prontuario;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,14 +26,13 @@ public class ExameRequest {
 
     private @Getter @Setter UUID idProntuario;
 
-    private @Getter @Setter UUID idTutor;
-
     public static Exame toEntity(final ExameRequest dto) {
-
         return Exame.builder()
                 .nome(dto.getNome())
                 .data(dto.getData())
                 .tipo(dto.getTipo())
+                .medico(Medico.builder().id(dto.getIdMedico()).build())
+                .prontuario(Prontuario.builder().id(dto.getIdProntuario()).build())
                 .build();
     }
 }

@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
 
+import br.com.fiap.javaadv.blog.backend.domainmodel.enums.StatusEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,7 +29,7 @@ public class Historico {
     private @Getter @Setter Date data;
 
     @Column(name="STATUS_hist", length = 15)
-    private @Getter @Setter String status;
+    private @Getter @Setter StatusEnum status;
 
 
     //Relacionamentos

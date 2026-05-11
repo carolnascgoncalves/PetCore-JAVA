@@ -28,31 +28,15 @@ public class ReceitaResponse {
                 .nome(receita.getNome())
                 .validade(receita.getValidade())
 
-                .idMedico(
-                        receita.getMedico() != null
-                                ? receita.getMedico().getId()
-                                : null
-                )
-
-                .nomeMedico(
-                        receita.getMedico() != null
-                                ? receita.getMedico().getNome()
-                                : null
-                )
-
-                .urlImgMed(
-                        receita.getMedico() != null
-                                ? receita.getMedico().getUrlImg()
-                                : null
-                )
-
+                .idMedico(receita.getMedico() != null ? receita.getMedico().getId() : null)
+                .nomeMedico(receita.getMedico() != null ? receita.getMedico().getNome() : null)
+                .urlImgMed(receita.getMedico() != null ? receita.getMedico().getUrlImg() : null)
                 .idMedicamentos(
                         receita.getMedicamentos()
                                 .stream()
                                 .map(Medicamento::getId)
                                 .collect(Collectors.toSet())
                 )
-
                 .build();
     }
 }

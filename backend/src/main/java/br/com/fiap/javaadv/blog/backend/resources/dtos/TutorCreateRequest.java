@@ -1,9 +1,7 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Profile;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Tutor;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
-import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.sql.Date;
@@ -33,6 +31,17 @@ public class TutorCreateRequest {
                 .sexo(dto.getSexo())
                 .email(dto.getEmail())
                 .senha(dto.getSenha())
+                .build();
+    }
+
+    public static TutorCreateRequest toDto(final Tutor tutor){
+        return TutorCreateRequest.builder()
+                .nome(tutor.getNome())
+                .dataNascimento(tutor.getDataNascimento())
+                .telefone(tutor.getTelefone())
+                .sexo(tutor.getSexo())
+                .email(tutor.getEmail())
+                .senha(tutor.getSenha())
                 .build();
     }
 }

@@ -1,6 +1,5 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
-import br.com.fiap.javaadv.blog.backend.datasource.repositories.ProfileRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Profile;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.User;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +16,10 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Transactional( propagation = Propagation.REQUIRED)
+public class ProfileServiceImp{}
+ /*
 public class ProfileServiceImp implements ProfileService {
+
 
     private final ProfileRepository profileRepository;
 
@@ -92,6 +94,7 @@ public class ProfileServiceImp implements ProfileService {
     public boolean existsById(UUID id){
         return this.profileRepository.existsById(id);
     }
+    }
+*/
 
 
-}

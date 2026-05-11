@@ -26,24 +26,9 @@ public class ExameResponse {
                 .data(exame.getData())
                 .tipo(exame.getTipo())
 
-                .idMedico(
-                        exame.getMedico() != null
-                                ? exame.getMedico().getId()
-                                : null
-                )
-
-                .nomeMedico(
-                        exame.getMedico() != null
-                                ? exame.getMedico().getNome()
-                                : null
-                )
-
-                .urlImgMed(
-                        exame.getMedico() != null
-                                ? exame.getMedico().getUrlImg()
-                                : null
-                )
-
+                .idMedico(exame.getMedico() != null ? exame.getMedico().getId() : null)
+                .nomeMedico(exame.getMedico() != null ? exame.getMedico().getNome() : null)
+                .urlImgMed(exame.getMedico() != null ? exame.getMedico().getUrlImg() : null)
                 .build();
     }
 }

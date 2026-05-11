@@ -1,14 +1,9 @@
 package br.com.fiap.javaadv.blog.backend;
 
-import br.com.fiap.javaadv.blog.backend.datasource.repositories.ProfileRepository;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Post;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Profile;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.UUID;

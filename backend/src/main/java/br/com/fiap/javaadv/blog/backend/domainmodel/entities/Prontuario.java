@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -39,11 +40,13 @@ public class Prontuario {
 
     //exame (1:n)
     @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Exame> exames;
+    @Builder.Default
+    private @Getter @Setter Set<Exame> exames = new HashSet<>();
 
     //receita (1:n)
     @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Receita> receitas;
+    @Builder.Default
+    private @Getter @Setter Set<Receita> receitas = new HashSet<>();
 
     //historico (n:1)
     @ManyToOne

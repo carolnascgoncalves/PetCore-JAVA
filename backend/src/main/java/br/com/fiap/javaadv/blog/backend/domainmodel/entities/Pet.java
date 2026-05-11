@@ -1,6 +1,7 @@
 package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
+import br.com.fiap.javaadv.blog.backend.domainmodel.enums.StatusEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -60,7 +61,7 @@ public class Pet {
     private @Getter @Setter SexoEnum sexo;
 
     @Column(name="STATUS_pet")
-    private @Getter @Setter boolean status;
+    private @Getter @Setter StatusEnum status;
 
     @Column(name="URL_IMG_pet")
     private @Getter @Setter String urlImg;

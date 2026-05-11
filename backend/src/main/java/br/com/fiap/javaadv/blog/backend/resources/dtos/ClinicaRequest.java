@@ -1,6 +1,7 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Clinica;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Endereco;
 import lombok.*;
 
 import java.util.UUID;
@@ -19,6 +20,7 @@ public class ClinicaRequest {
         return Clinica.builder()
                 .cnpj(dto.getCnpj())
                 .nome(dto.getNome())
+                .endereco(Endereco.builder().id(dto.idEndereco).build())
                 .build();
     }
 }

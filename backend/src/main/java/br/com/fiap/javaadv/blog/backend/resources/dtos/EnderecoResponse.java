@@ -16,12 +16,15 @@ public class EnderecoResponse {
 
     private @Getter @Setter String complemento;
 
+    private @Getter @Setter UUID idClinica;
+
     public static EnderecoResponse toDto(final Endereco endereco) {
 
         return EnderecoResponse.builder()
                 .id(endereco.getId())
                 .cep(endereco.getCep())
                 .complemento(endereco.getComplemento())
+                .idClinica(endereco.getClinica().getId())
                 .build();
     }
 }

@@ -1,9 +1,11 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Historico;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Relatorio;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.StatusEnum;
 import lombok.*;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -12,8 +14,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class HistoricoResponse {
-    private @Getter @Setter UUID id;
+public class HistoricoRequest {
+    private @Getter @Setter Date data;
 
     private @Getter @Setter StatusEnum status = StatusEnum.ATIVO;
 
@@ -23,9 +25,10 @@ public class HistoricoResponse {
 
     private @Getter @Setter UUID idPet;
 
-    public static HistoricoResponse toDto(final Historico historico) {
-        return HistoricoResponse.builder()
-                .id(historico.getId())
+
+    public static HistoricoRequest toDto(final Historico historico) {
+        return HistoricoRequest.builder()
+                .data(historico.getData())
                 .status(historico.getStatus())
 
                 .idProntuarios(

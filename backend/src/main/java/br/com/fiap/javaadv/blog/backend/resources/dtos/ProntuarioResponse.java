@@ -27,17 +27,17 @@ public class ProntuarioResponse {
 
     private @Getter @Setter Set<ReceitaResponse> receitas;
 
+    private @Getter @Setter UUID idHistorico;
+
     public static ProntuarioResponse toDto(final Prontuario prontuario) {
 
         return ProntuarioResponse.builder()
                 .id(prontuario.getId())
                 .data(prontuario.getData())
                 .descricao(prontuario.getDescricao())
-                .idMedico(
-                        prontuario.getMedico() != null
-                                ? prontuario.getMedico().getId()
-                                : null
-                )
+
+                .idMedico(prontuario.getMedico() != null ? prontuario.getMedico().getId() : null)
+                .idHistorico(prontuario.getHistorico() != null ? prontuario.getHistorico().getId() : null)
                 .nomeMedico(
                         prontuario.getMedico() != null
                                 ? prontuario.getMedico().getNome()

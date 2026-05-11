@@ -24,6 +24,7 @@ public class ProfileDTO {
 
     private @Getter @Setter UUID userId;
 
+    //toDto
     public static ProfileDTO fromEntity( final Profile profile ) {
         return ProfileDTO.builder()
                 .id(profile.getId())
@@ -33,6 +34,7 @@ public class ProfileDTO {
                 .build();
     }
 
+    //toEntity
     public static Profile fromDTO( final ProfileDTO dto ){
         return Profile.builder()
                 .id(dto.getId())
