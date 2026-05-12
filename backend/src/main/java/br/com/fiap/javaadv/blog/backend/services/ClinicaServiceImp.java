@@ -36,10 +36,6 @@ public class ClinicaServiceImp implements ClinicaService{
         return Optional.empty();
     }
 
-    @Override
-    public void delete(Clinica clinica){
-        clinicaRepository.delete(clinica);
-    }
 
     @Override
     public void delete(UUID id){

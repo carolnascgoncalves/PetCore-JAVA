@@ -37,11 +37,6 @@ public class EnderecoServiceImp implements EnderecoService{
     }
 
     @Override
-    public void delete(Endereco endereco){
-        enderecoRepository.delete(endereco);
-    }
-
-    @Override
     public void delete(UUID id){
         enderecoRepository.deleteById(id);
     }

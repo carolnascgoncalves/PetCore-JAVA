@@ -48,7 +48,7 @@ public class MedicoServiceImp implements MedicoService{
 
     @Override
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
-    public Optional<Medico> fetchById(UUID id){
+    public Optional<Medico> fetchByEmail(UUID id){
         return this.medicoRepository.findById(id);
     }
 
@@ -63,7 +63,7 @@ public class MedicoServiceImp implements MedicoService{
     }
 
     @Override
-    public Optional<Medico> login(String email, String senha){
+    public Optional<Medico> fetchByEmail(String email, String senha){
         Optional<Medico> medico = medicoRepository.findByEmail(email);
         if(medico.isPresent() && medico.get().getSenha().equals(senha)){return medico;}
 

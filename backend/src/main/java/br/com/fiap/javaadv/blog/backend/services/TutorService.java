@@ -23,5 +23,5 @@ public interface TutorService {
 
     boolean existsById(UUID id);
 
-    Optional<Tutor> login(String email, String senha);
+    Optional<Tutor> fetchByEmail(String email, String senha);
 }

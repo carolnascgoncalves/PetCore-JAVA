@@ -18,10 +18,10 @@ public interface MedicoService {
 
     Page<Medico> fetchAll(Pageable pageable);
 
-    Optional<Medico> fetchById(UUID id);
+    Optional<Medico> fetchByEmail(UUID id);
 
     boolean existsById(UUID id);
 
-    Optional<Medico> login(String email, String senha);
+    Optional<Medico> fetchByEmail(String email, String senha);
 
 }

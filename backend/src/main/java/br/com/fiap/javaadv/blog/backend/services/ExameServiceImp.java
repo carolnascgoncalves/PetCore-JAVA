@@ -37,11 +37,6 @@ public class ExameServiceImp implements ExameService{
     }
 
     @Override
-    public void delete(Exame exame){
-        exameRepository.delete(exame);
-    }
-
-    @Override
     public void delete(UUID id){
         exameRepository.deleteById(id);
     }

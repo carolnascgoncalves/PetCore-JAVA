@@ -10,6 +10,7 @@ import lombok.*;
 
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -25,7 +26,7 @@ public class Tutor {
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
-    @Size(max=100, message="O nome deve ter no máximo 100 caracteres")
+    @Size(min = 2, max=100, message="O nome deve ter entre 2 à 100 caracteres")
     @Column(name="NOME_tut", length = 100, nullable = false)
     private @Getter @Setter String nome;
 
@@ -40,17 +41,17 @@ public class Tutor {
 
     @NotBlank( message = "O email é obrigatorio")
     @Email(message="O email deve ser válido")
-    @Size(max = 100, message="O email deve ter no máximo 100 caracteres")
+    @Size(min = 2, max = 100, message="O email deve ter entre 2 à 100 caracteres")
     @Column(name="EMAIL_tut", length = 100, nullable = false)
     private @Getter @Setter String email;
 
-    @NotBlank(message= "O sexo é obrigatorio")
-    @Size( max=1, message="O sexo deve ter no maximo 1 caractere")
-    @Column(name="SEXO_tut", length = 1, nullable = false)
+    @NotNull(message = "O sexo é obrigatório")
+    @Enumerated(EnumType.STRING)
+    @Column(name="SEXO_pet", nullable = false)
     private @Getter @Setter SexoEnum sexo;
 
     @NotBlank(message="A senha é obrigatoria")
-    @Size( min=8, message="O senha deve ter ao menos 8 caracteres.")
+    @Size( min=8, max = 30, message="O senha deve ter entre 2 à 30 caracteres.")
     @Column( name = "SENHA_tut", length = 30, nullable = false)
     private @Getter @Setter String senha;
 
@@ -61,8 +62,8 @@ public class Tutor {
     @ManyToMany
     @JoinTable(
             name="tut_pet_petcore",
-            joinColumns = @JoinColumn(name="ID_pet_(FK)"),
-            inverseJoinColumns = @JoinColumn(name="ID_tut_(FK)")
+            joinColumns = @JoinColumn(name="ID_tut_(FK)"),
+            inverseJoinColumns = @JoinColumn(name="ID_pet_(FK)")
     )
     private @Getter @Setter Set<Pet> pets = new HashSet<>();
 }

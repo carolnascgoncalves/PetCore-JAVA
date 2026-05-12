@@ -35,4 +35,15 @@ public class ExameRequest {
                 .prontuario(Prontuario.builder().id(dto.getIdProntuario()).build())
                 .build();
     }
+
+    public static ExameRequest toDto(final Exame exame){
+        return ExameRequest.builder()
+                .nome(exame.getNome())
+                .data(exame.getData())
+                .tipo(exame.getTipo())
+                .idMedico(exame.getMedico().getId())
+                .idProntuario(exame.getProntuario().getId())
+                .build();
+
+    }
 }

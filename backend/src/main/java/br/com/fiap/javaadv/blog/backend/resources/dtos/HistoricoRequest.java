@@ -1,7 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Historico;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Relatorio;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.*;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.StatusEnum;
 import lombok.*;
 
@@ -25,6 +24,28 @@ public class HistoricoRequest {
 
     private @Getter @Setter UUID idPet;
 
+    public static Historico toEntity(final HistoricoRequest dto) {
+        return Historico.builder()
+                .data(dto.getData())
+                .status(dto.getStatus())
+                .pet(Pet.builder().id(dto.getIdPet()).build())
+
+                .prontuarios(dto.getIdProntuarios()
+                        .stream()
+                        .map(id -> Prontuario.builder()
+                                .id(id)
+                                .build())
+                        .collect(Collectors.toSet()))
+
+                .relatorios(dto.getIdRelatorios()
+                        .stream()
+                        .map(id -> Relatorio.builder()
+                                .id(id)
+                                .build())
+                        .collect(Collectors.toSet())
+                )
+                .build();
+    }
 
     public static HistoricoRequest toDto(final Historico historico) {
         return HistoricoRequest.builder()

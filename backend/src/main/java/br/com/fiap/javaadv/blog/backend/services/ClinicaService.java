@@ -13,8 +13,6 @@ public interface ClinicaService {
 
     Optional<Clinica> update(UUID id, Clinica clinica);
 
-    void delete(Clinica clinica);
-
     void delete(UUID id);
 
     Page<Clinica> fetchAll(Pageable pageable);

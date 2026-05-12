@@ -40,10 +40,6 @@ public class ReceitaServiceImp implements ReceitaService{
         this.receitaRepository.deleteById(id);
     }
 
-    @Override
-    public void delete(Receita receita) {
-        this.receitaRepository.delete(receita);
-    }
 
     @Override
     public boolean existsById(UUID id){return this.receitaRepository.existsById(id);}

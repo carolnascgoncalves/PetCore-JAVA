@@ -13,8 +13,6 @@ public interface MedicamentoService {
 
     Optional<Medicamento> update(UUID id, Medicamento medic);
 
-    void delete(Medicamento medic);
-
     void delete(UUID id);
 
     Page<Medicamento> fetchAll(Pageable pageable);

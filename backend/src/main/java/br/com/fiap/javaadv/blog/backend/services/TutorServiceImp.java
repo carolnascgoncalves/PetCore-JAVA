@@ -61,7 +61,7 @@ public class TutorServiceImp implements TutorService{
     }
 
     @Override
-    public Optional<Tutor> login(String email, String senha){
+    public Optional<Tutor> fetchByEmail(String email, String senha){
         Optional<Tutor> tutor = tutorRepository.findByEmail(email);
         if(tutor.isPresent() && tutor.get().getSenha().equals(senha)){return tutor;}
 

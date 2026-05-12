@@ -10,8 +10,6 @@ import java.util.UUID;
 public interface HistoricoService {
     Historico create(Historico historico);
 
-    void delete(Historico historico);
-
     void delete(UUID id);
 
     Page<Historico> fetchAll(Pageable pageable);

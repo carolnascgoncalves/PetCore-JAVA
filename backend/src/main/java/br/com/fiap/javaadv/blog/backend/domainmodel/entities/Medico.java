@@ -43,9 +43,9 @@ public class Medico {
     @Column(name="EMAIL_med", length = 100, nullable = false)
     private @Getter @Setter String email;
 
-    @NotBlank(message= "O sexo é obrigatorio")
-    @Size( max=1, message="O sexo deve ter no maximo 1 caractere")
-    @Column(name="SEXO_med", length = 1, nullable = false)
+    @NotNull(message = "O sexo é obrigatório")
+    @Enumerated(EnumType.STRING)
+    @Column(name="SEXO_pet", nullable = false)
     private @Getter @Setter SexoEnum sexo;
 
     @NotBlank(message="A senha é obrigatoria")

@@ -37,5 +37,5 @@ public class Relatorio {
 
     //clinica (n:n)
     @ManyToMany( mappedBy = "relatorios", fetch = FetchType.LAZY)
-    private @Getter @Setter Set<Tutor> tutores;
+    private @Getter @Setter Set<Clinica> clinicas;
 }

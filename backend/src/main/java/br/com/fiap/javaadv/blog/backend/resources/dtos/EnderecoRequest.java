@@ -22,4 +22,11 @@ public class EnderecoRequest {
                 .complemento(dto.getComplemento())
                 .build();
     }
+
+    public static EnderecoRequest toDto(final Endereco endereco){
+        return EnderecoRequest.builder()
+                .cep(endereco.getCep())
+                .complemento(endereco.getComplemento())
+                .build();
+    }
 }

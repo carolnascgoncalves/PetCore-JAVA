@@ -1,6 +1,7 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medicamento;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
 import lombok.*;
 
 @AllArgsConstructor
@@ -19,6 +20,14 @@ public class MedicamentoRequest {
                 .nome(dto.getNome())
                 .dosagem(dto.getDosagem())
                 .instrucao(dto.getInstrucao())
+                .build();
+    }
+
+    public static MedicamentoRequest toDto(final Medicamento medicamento){
+        return MedicamentoRequest.builder()
+                .nome(medicamento.getNome())
+                .dosagem(medicamento.getDosagem())
+                .instrucao(medicamento.getInstrucao())
                 .build();
     }
 

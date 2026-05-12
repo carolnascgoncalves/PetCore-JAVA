@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -28,7 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<spring-restdocs.version>3.0.0</spring-restdocs.version>
+		<querydsl.version>5.1.0</querydsl.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -86,7 +86,7 @@
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-core</artifactId>
-     		<version>${querydsl.version}</version>
+			<version>${querydsl.version}</version>
 
 		</dependency>
 		<!-- END OF QUERYDSL DEPENDENCIES-->
@@ -113,26 +113,26 @@
 			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>com.github.ben-manes.caffeine</groupId>-->
-<!--			<artifactId>caffeine</artifactId>-->
-<!--			<version>3.1.8</version> &lt;!&ndash; ou última versão estável &ndash;&gt;-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.hibernate.orm</groupId>-->
-<!--			<artifactId>hibernate-core</artifactId>-->
-<!--			<version>6.6.11.Final</version> &lt;!&ndash; Ou a versão compatível com Spring Boot 3.4.x &ndash;&gt;-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.hibernate</groupId>-->
-<!--			<artifactId>hibernate-jcache</artifactId>-->
-<!--			<version>6.6.11.Final</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.hibernate</groupId>-->
-<!--			<artifactId>hibernate-ehcache</artifactId>-->
-<!--			<version>6.0.0.Alpha7</version>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>com.github.ben-manes.caffeine</groupId>-->
+		<!--			<artifactId>caffeine</artifactId>-->
+		<!--			<version>3.1.8</version> &lt;!&ndash; ou última versão estável &ndash;&gt;-->
+		<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.hibernate.orm</groupId>-->
+		<!--			<artifactId>hibernate-core</artifactId>-->
+		<!--			<version>6.6.11.Final</version> &lt;!&ndash; Ou a versão compatível com Spring Boot 3.4.x &ndash;&gt;-->
+		<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.hibernate</groupId>-->
+		<!--			<artifactId>hibernate-jcache</artifactId>-->
+		<!--			<version>6.6.11.Final</version>-->
+		<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.hibernate</groupId>-->
+		<!--			<artifactId>hibernate-ehcache</artifactId>-->
+		<!--			<version>6.0.0.Alpha7</version>-->
+		<!--		</dependency>-->
 
 		<!-- END OF CACHE DEPS CONFIGURATION-->
 
@@ -140,39 +140,39 @@
 		<!-- INIT OF OPEN API DOCS DEPS CONFIURATION -->
 		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
 
-<!--		<dependency>-->
-<!--			<groupId>org.springdoc</groupId>-->
-<!--			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-<!--			<version>2.8.5</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springdoc</groupId>-->
-<!--			<artifactId>springdoc-openapi-starter-common</artifactId>-->
-<!--			<version>2.8.5</version>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.springdoc</groupId>-->
+		<!--			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
+		<!--			<version>2.8.5</version>-->
+		<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.springdoc</groupId>-->
+		<!--			<artifactId>springdoc-openapi-starter-common</artifactId>-->
+		<!--			<version>2.8.5</version>-->
+		<!--		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
-<!--		<dependency>-->
-<!--			<groupId>io.swagger.core.v3</groupId>-->
-<!--			<artifactId>swagger-annotations</artifactId>-->
-<!--			<version>2.2.4</version>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>io.swagger.core.v3</groupId>-->
+		<!--			<artifactId>swagger-annotations</artifactId>-->
+		<!--			<version>2.2.4</version>-->
+		<!--		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-core -->
-<!--		<dependency>-->
-<!--			<groupId>io.swagger.core.v3</groupId>-->
-<!--			<artifactId>swagger-core</artifactId>-->
-<!--			<version>2.2.4</version>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>io.swagger.core.v3</groupId>-->
+		<!--			<artifactId>swagger-core</artifactId>-->
+		<!--			<version>2.2.4</version>-->
+		<!--		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-models -->
-<!--		<dependency>-->
-<!--			<groupId>io.swagger.core.v3</groupId>-->
-<!--			<artifactId>swagger-models</artifactId>-->
-<!--			<version>2.2.4</version>-->
-<!--		</dependency>-->
+		<!--		<dependency>-->
+		<!--			<groupId>io.swagger.core.v3</groupId>-->
+		<!--			<artifactId>swagger-models</artifactId>-->
+		<!--			<version>2.2.4</version>-->
+		<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>3.0.2</version>
+			<version>2.8.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -197,12 +197,38 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- INIT OF SPRING SECURITY DEPS -->
+
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.30</version>
-			<scope>provided</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
+
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- INIT OF SPRING SECURITY DEPS -->
+
+
 	</dependencies>
 
 	<build>
@@ -225,11 +251,13 @@
 					</execution>
 				</executions>
 				<dependencies>
-					<dependency>
+					<!-- Source: https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-asciidoctor -->
+					<!--<dependency>
 						<groupId>org.springframework.restdocs</groupId>
 						<artifactId>spring-restdocs-asciidoctor</artifactId>
-						<version>${spring-restdocs.version}</version>
-					</dependency>
+						<version>3.0.0</version>
+						<scope>compile</scope>
+					</dependency>-->
 				</dependencies>
 			</plugin>
 			<plugin>
@@ -261,20 +289,31 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>com.mysema.maven</groupId>
-				<artifactId>apt-maven-plugin</artifactId>
-				<version>1.1.3</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>process</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>target/generated-sources</outputDirectory>
-							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
-						</configuration>
-					</execution>
-				</executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+
+				<configuration>
+					<annotationProcessorPaths>
+
+						<path>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-configuration-processor</artifactId>
+						</path>
+
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+
+						<path>
+							<groupId>com.querydsl</groupId>
+							<artifactId>querydsl-apt</artifactId>
+							<version>${querydsl.version}</version>
+							<classifier>jakarta</classifier>
+						</path>
+
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

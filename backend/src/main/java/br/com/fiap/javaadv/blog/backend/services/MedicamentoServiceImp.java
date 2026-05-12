@@ -36,11 +36,6 @@ public class MedicamentoServiceImp implements MedicamentoService{
     }
 
     @Override
-    public void delete(Medicamento medicamento){
-        medicamentoRepository.delete(medicamento);
-    }
-
-    @Override
     public void delete(UUID id){
         medicamentoRepository.deleteById(id);
     }

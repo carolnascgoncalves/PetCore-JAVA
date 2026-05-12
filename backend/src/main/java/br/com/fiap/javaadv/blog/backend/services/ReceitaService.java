@@ -16,7 +16,5 @@ public interface ReceitaService {
 
     void delete(UUID id);
 
-    void delete(Receita receita);
-
     boolean existsById(UUID id);
 }

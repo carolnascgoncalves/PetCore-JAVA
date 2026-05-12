@@ -25,11 +25,6 @@ public class HistoricoServiceImp implements HistoricoService{
     }
 
     @Override
-    public void delete(Historico historico){
-        historicoRepository.delete(historico);
-    }
-
-    @Override
     public void delete(UUID id){
         historicoRepository.deleteById(id);
     }

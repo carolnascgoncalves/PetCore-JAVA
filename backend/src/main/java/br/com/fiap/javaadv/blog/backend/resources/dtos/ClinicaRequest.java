@@ -23,4 +23,12 @@ public class ClinicaRequest {
                 .endereco(Endereco.builder().id(dto.idEndereco).build())
                 .build();
     }
+
+    public static ClinicaRequest toDto(final Clinica clinica){
+        return ClinicaRequest.builder()
+                .cnpj(clinica.getCnpj())
+                .nome(clinica.getNome())
+                .idEndereco(clinica.getEndereco().getId())
+                .build();
+    }
 }

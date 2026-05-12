@@ -40,4 +40,17 @@ public class MedicoCreateRequest {
                 .urlImg(dto.getUrlImg())
                 .build();
     }
+
+    public static MedicoCreateRequest toDto(final Medico medico){
+        return MedicoCreateRequest.builder()
+                .nome(medico.getNome())
+                .dataNascimento(medico.getDataNascimento())
+                .telefone(medico.getTelefone())
+                .email(medico.getEmail())
+                .sexo(medico.getSexo())
+                .senha(medico.getSenha())
+                .especialidade(medico.getEspecialidade())
+                .urlImg(medico.getUrlImg())
+                .build();
+    }
 }

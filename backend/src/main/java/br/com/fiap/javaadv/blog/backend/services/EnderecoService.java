@@ -13,8 +13,6 @@ public interface EnderecoService {
 
     Optional<Endereco> update(UUID id, Endereco endereco);
 
-    void delete(Endereco endereco);
-
     void delete(UUID id);
 
     Page<Endereco> fetchAll(Pageable pageable);

@@ -45,7 +45,7 @@ public class PetResource {
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/status/{id}")
     public ResponseEntity<PetRequest> updateStatus(@PathVariable UUID id, @Valid @RequestBody PetRequest dadosDto){
         return this.petService.update(id, PetRequest.toEntity(dadosDto))
                 .map(pet ->

@@ -13,8 +13,6 @@ public interface ExameService {
 
     Optional<Exame> update(UUID id, Exame exame);
 
-    void delete(Exame exame);
-
     void delete(UUID id);
 
     Page<Exame> fetchAll(Pageable pageable);
