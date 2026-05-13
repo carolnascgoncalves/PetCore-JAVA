@@ -20,16 +20,25 @@ public class RelatorioServiceImp implements RelatorioService{
 
     @Override
     public Relatorio create(Relatorio relatorio) {
-        return this.relatorioRepository.save(relatorio);
+        return relatorioRepository.save(relatorio);
     }
 
     @Override
     public Optional<Relatorio> update(UUID id, Relatorio relatorio) {
-        if(relatorioRepository.existsById(id)){
-            relatorio.setId(id);
-            return Optional.of(relatorio);
-        }
-        return Optional.empty();
+        return relatorioRepository.findById(id)
+                .map(existing -> {
+
+                    if (relatorio.getObservacao() != null)
+                        existing.setObservacao(relatorio.getObservacao());
+
+                    if (relatorio.getHistorico() != null)
+                        existing.setHistorico(relatorio.getHistorico());
+
+                    if (relatorio.getMedico() != null)
+                        existing.setMedico(relatorio.getMedico());
+
+                    return relatorioRepository.save(existing);
+                });
     }
 
     @Transactional( propagation = Propagation.NEVER)
@@ -45,13 +54,8 @@ public class RelatorioServiceImp implements RelatorioService{
     }
 
     @Override
-    public void deletar(UUID id) {
+    public void delete(UUID id) {
         this.relatorioRepository.deleteById(id);
-    }
-
-    @Override
-    public void deletar(Relatorio relatorio) {
-        this.relatorioRepository.delete(relatorio);
     }
 
     public boolean existsById(UUID id){

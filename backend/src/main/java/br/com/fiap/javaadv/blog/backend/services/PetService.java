@@ -23,7 +23,5 @@ public interface PetService {
 
     boolean existsById(UUID id);
 
-    void delete(Pet pet);
-
     void delete(UUID id);
 }

@@ -39,9 +39,7 @@ public class ProntuarioResponse {
                 .idMedico(prontuario.getMedico() != null ? prontuario.getMedico().getId() : null)
                 .idHistorico(prontuario.getHistorico() != null ? prontuario.getHistorico().getId() : null)
                 .nomeMedico(
-                        prontuario.getMedico() != null
-                                ? prontuario.getMedico().getNome()
-                                : null
+                        prontuario.getMedico() != null ? prontuario.getMedico().getNome() : null
                 )
                 .exames(
                         prontuario.getExames()

@@ -51,10 +51,11 @@ public class ClinicaResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.clinicaService.existsById(id))
+        if( this.clinicaService.existsById(id)) {
+            this.clinicaService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
-
     }
 
     @GetMapping("/listar")

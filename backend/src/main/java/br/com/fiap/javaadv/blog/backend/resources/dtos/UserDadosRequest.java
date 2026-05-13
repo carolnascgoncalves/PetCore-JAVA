@@ -22,6 +22,7 @@ public class UserDadosRequest {
                 .email(tutor.getEmail())
                 .telefone(tutor.getTelefone())
                 .senha(tutor.getSenha())
+                .urlImg(tutor.getUrlImg())
                 .build();
     }
 
@@ -30,6 +31,7 @@ public class UserDadosRequest {
                 .email(dto.getEmail())
                 .telefone(dto.getTelefone())
                 .senha(dto.getSenha())
+                .urlImg(dto.getUrlImg())
                 .build();
     }
 
@@ -38,6 +40,7 @@ public class UserDadosRequest {
                 .email(medico.getEmail())
                 .telefone(medico.getTelefone())
                 .senha(medico.getSenha())
+                .urlImg(medico.getUrlImg())
                 .build();
     }
 
@@ -46,6 +49,7 @@ public class UserDadosRequest {
                 .email(dto.getEmail())
                 .telefone(dto.getTelefone())
                 .senha(dto.getSenha())
+                .urlImg(dto.getUrlImg())
                 .build();
     }
 }

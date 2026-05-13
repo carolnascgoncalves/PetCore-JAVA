@@ -27,7 +27,6 @@ public class ClinicaResponse {
                 .id(clinica.getId())
                 .cnpj(clinica.getCnpj())
                 .nome(clinica.getNome())
-
                 .idEndereco(clinica.getEndereco() != null ? clinica.getEndereco().getId() : null)
                 .build();
     }

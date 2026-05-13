@@ -24,21 +24,34 @@ public class TutorServiceImp implements TutorService{
     }
 
     @Override
-    public Optional<Tutor> update(UUID id, Tutor tutor){
-        if(this.tutorRepository.existsById(id)){
-            tutor.setId(id);
-            this.tutorRepository.save(tutor);
+    public Optional<Tutor> update(UUID id, Tutor patch) {
+        return tutorRepository.findById(id)
+                .map(existing -> {
 
-            return Optional.of(tutor);
-        }
-        return Optional.empty();
+                    if (patch.getNome() != null)
+                        existing.setNome(patch.getNome());
+
+                    if (patch.getDataNascimento() != null)
+                        existing.setDataNascimento(patch.getDataNascimento());
+
+                    if (patch.getTelefone() != null)
+                        existing.setTelefone(patch.getTelefone());
+
+                    if (patch.getEmail() != null)
+                        existing.setEmail(patch.getEmail());
+
+                    if (patch.getSexo() != null)
+                        existing.setSexo(patch.getSexo());
+
+                    if (patch.getSenha() != null)
+                        existing.setSenha(patch.getSenha());
+
+                    if (patch.getUrlImg() != null)
+                        existing.setUrlImg(patch.getUrlImg());
+
+                    return tutorRepository.save(existing);
+                });
     }
-
-    @Override
-    public void delete(Tutor tutor){
-        tutorRepository.delete(tutor);
-    }
-
     @Override
     public void delete(UUID id){
         tutorRepository.deleteById(id);

@@ -69,11 +69,6 @@ public class PetServiceImp implements PetService {
     }
 
     @Override
-    public void delete(Pet pet) {
-        petRepository.delete(pet);
-    }
-
-    @Override
     public void delete(UUID id) {
         petRepository.deleteById(id);
     }

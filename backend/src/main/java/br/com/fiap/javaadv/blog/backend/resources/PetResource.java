@@ -56,8 +56,10 @@ public class PetResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.petService.existsById(id))
+        if( this.petService.existsById(id)) {
+            this.petService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
 
     }

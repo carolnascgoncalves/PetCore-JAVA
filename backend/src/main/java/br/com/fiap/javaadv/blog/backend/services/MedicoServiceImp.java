@@ -37,11 +37,6 @@ public class MedicoServiceImp implements MedicoService{
     }
 
     @Override
-    public void delete(Medico medico){
-        medicoRepository.delete(medico);
-    }
-
-    @Override
     public void delete(UUID id){
         medicoRepository.deleteById(id);
     }

@@ -48,10 +48,11 @@ public class MedicamentoResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.medicamentoService.existsById(id))
+        if( this.medicamentoService.existsById(id)) {
+            this.medicamentoService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
-
     }
 
     @GetMapping("/listar")

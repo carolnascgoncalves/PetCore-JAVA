@@ -22,7 +22,7 @@ public class RelatorioResponse {
                 .id(relatorio.getId())
                 .observacao(relatorio.getObservacao())
                 .idHist(relatorio.getHistorico() != null ? relatorio.getHistorico().getId() : null)
-                .idHist(relatorio.getMedico() != null ? relatorio.getHistorico().getId() : null)
+                .idMedico(relatorio.getMedico() != null ? relatorio.getMedico().getId() : null)
                 .build();
     }
 }

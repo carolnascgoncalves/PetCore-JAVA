@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name="endereco_petcore")
+@Table(name="medicamento_petcore")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString

@@ -24,7 +24,7 @@ public class RelatorioRequest {
 
         return Relatorio.builder()
                 .observacao(dto.getObservacao())
-                .historico(Historico.builder().id(dto.getIdMedico()).build())
+                .historico(Historico.builder().id(dto.getIdHist()).build())
                 .medico(Medico.builder().id(dto.getIdMedico()).build())
                 .build();
     }

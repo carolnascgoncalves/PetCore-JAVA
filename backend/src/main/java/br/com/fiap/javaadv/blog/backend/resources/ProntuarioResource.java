@@ -48,8 +48,10 @@ public class ProntuarioResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.prontuarioService.existsById(id))
+        if( this.prontuarioService.existsById(id)) {
+            this.prontuarioService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
 
     }

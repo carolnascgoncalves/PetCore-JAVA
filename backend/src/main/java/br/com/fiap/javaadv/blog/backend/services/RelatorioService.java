@@ -18,9 +18,7 @@ public interface RelatorioService {
 
     Optional<Relatorio> fetchById(UUID id);
 
-    void deletar(UUID id);
-
-    void deletar(Relatorio relatorio);
+    void delete(UUID id);
 
     boolean existsById(UUID id);
 }

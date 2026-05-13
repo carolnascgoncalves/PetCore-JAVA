@@ -12,8 +12,6 @@ public interface MedicoService {
 
     Optional<Medico> update(UUID id, Medico tutor);
 
-    void delete(Medico medico);
-
     void delete(UUID id);
 
     Page<Medico> fetchAll(Pageable pageable);

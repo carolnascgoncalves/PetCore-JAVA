@@ -66,9 +66,10 @@ public class RelatorioResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.relatorioService.existsById(id))
+        if( this.relatorioService.existsById(id)) {
+            this.relatorioService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
-
     }
 }

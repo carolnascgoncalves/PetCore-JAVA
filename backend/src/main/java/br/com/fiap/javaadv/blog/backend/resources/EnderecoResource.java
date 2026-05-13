@@ -2,10 +2,7 @@ package br.com.fiap.javaadv.blog.backend.resources;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Endereco;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Exame;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.EnderecoRequest;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.EnderecoResponse;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.ExameRequest;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.ExameResponse;
+import br.com.fiap.javaadv.blog.backend.resources.dtos.*;
 import br.com.fiap.javaadv.blog.backend.services.EnderecoService;
 import br.com.fiap.javaadv.blog.backend.services.ExameService;
 import jakarta.validation.Valid;
@@ -51,18 +48,20 @@ public class EnderecoResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.enderecoService.existsById(id))
+        if( this.enderecoService.existsById(id)) {
+            this.enderecoService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
-
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<EnderecoRequest>> fetchAll(@PageableDefault(page = 0, size = 10)Pageable pageable){
+    public ResponseEntity<List<EnderecoResponse>> fetchAll(@PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.enderecoService.fetchAll(pageable)
+                        .getContent()
                         .stream()
-                        .map(EnderecoRequest::toDto)
+                        .map(EnderecoResponse::toDto)
                         .collect(Collectors.toList())
         );
     }

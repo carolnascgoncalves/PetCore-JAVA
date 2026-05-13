@@ -13,8 +13,6 @@ public interface TutorService {
 
     Optional<Tutor> update(UUID id, Tutor tutor);
 
-    void delete(Tutor tutor);
-
     void delete(UUID id);
 
     Page<Tutor> fetchAll(Pageable pageable);

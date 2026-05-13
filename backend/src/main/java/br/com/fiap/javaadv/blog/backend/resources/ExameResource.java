@@ -51,10 +51,11 @@ public class ExameResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.exameService.existsById(id))
+        if( this.exameService.existsById(id)) {
+            this.exameService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
-
     }
 
     @GetMapping("/listar")

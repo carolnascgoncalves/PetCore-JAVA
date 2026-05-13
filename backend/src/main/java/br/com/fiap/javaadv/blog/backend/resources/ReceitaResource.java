@@ -57,9 +57,12 @@ public class ReceitaResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.receitaService.existsById(id))
-            return ResponseEntity.noContent().build();
-        return ResponseEntity.notFound().build();
 
+        if(this.receitaService.existsById(id)){
+            this.receitaService.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
     }
 }

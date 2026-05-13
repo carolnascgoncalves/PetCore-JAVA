@@ -60,9 +60,10 @@ public class HistoricoResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.historicoService.existsById(id))
+        if( this.historicoService.existsById(id)) {
+            this.historicoService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
-
     }
 }
