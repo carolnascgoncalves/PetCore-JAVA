@@ -24,7 +24,7 @@ public class Medico {
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
-    @Size(max=100, message="O nome deve ter no máximo 100 caracteres")
+    @Size(min = 2, max=100, message="O nome deve ter entre 2 à 100 caracteres")
     @Column(name="NOME_med", length = 100, nullable = false)
     private @Getter @Setter String nome;
 
@@ -33,13 +33,13 @@ public class Medico {
     private @Getter @Setter Date dataNascimento;
 
     @NotBlank(message= "O telefone é obrigatorio")
-    @Size(max=11, message="O telefone deve ter no máximo 11 caracteres")
+    @Size(min = 11, max=11, message="O telefone deve ter 11 caracteres")
     @Column(name="TEL_med", length = 11, nullable = false)
     private @Getter @Setter String telefone;
 
     @NotBlank( message = "O email é obrigatorio")
     @Email(message="O email deve ser válido")
-    @Size(max = 100, message="O email deve ter no máximo 100 caracteres")
+    @Size(min = 2, max = 100, message="O email deve ter entre 2 à 100 caracteres")
     @Column(name="EMAIL_med", length = 100, nullable = false)
     private @Getter @Setter String email;
 
@@ -49,13 +49,13 @@ public class Medico {
     private @Getter @Setter SexoEnum sexo;
 
     @NotBlank(message="A senha é obrigatoria")
-    @Size( min=8, message="O senha deve ter ao menos 8 caracteres.")
+    @Size( min=8, max=30, message="O senha deve ter entre 8 à 30 caracteres.")
     @Column( name = "SENHA_med", length = 30, nullable = false)
     private @Getter @Setter String senha;
 
     @NotBlank(message= "A especialidade é obrigatoria")
     @Size(max=200, message="A especialidade deve ter no máximo 200 caracteres")
-    @Column(name="ESPEC_med", length = 100, nullable = false)
+    @Column(name="ESPEC_med", length = 200, nullable = false)
     private @Getter @Setter String especialidade;
 
     @Column(name="URL_IMG_med")

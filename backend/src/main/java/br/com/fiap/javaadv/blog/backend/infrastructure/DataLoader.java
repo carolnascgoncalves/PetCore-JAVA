@@ -16,112 +16,77 @@ import java.util.Set;
 @Configuration
 public class DataLoader {
     @Bean
-    CommandLineRunner initData(TutorRepository tutorRepository, PetRepository petRepository){
+    CommandLineRunner initDataTutPet(TutorRepository tutorRepository, PetRepository petRepository){
         return args -> {
-            Tutor manu = Tutor.builder()
-                    .nome("Emanuelly ventura")
-                    .dataNascimento(Date.valueOf("2007-02-26"))
-                    .telefone("11995142123")
-                    .email("manuVentura@gmail.com")
+            Tutor tutor1 = Tutor.builder()
+                    .nome("Sandra Nascimento")
+                    .dataNascimento(Date.valueOf("14-11-1968"))
+                    .telefone("11992746375")
+                    .email("sandraReg@gmail.com")
                     .sexo(SexoEnum.F)
-                    .senha("senha123")
+                    .senha("523453466256")
                     .build();
 
-            Tutor carol = Tutor.builder()
-                    .nome("Carolina Nascimento")
-                    .dataNascimento(Date.valueOf("2006-11-20"))
-                    .telefone("11945414013")
-                    .email("carolrsc@gmail.com")
+            Tutor tutor2 = Tutor.builder()
+                    .nome("Noelle Almeida")
+                    .dataNascimento(Date.valueOf("18-05-1988"))
+                    .telefone("11992933212")
+                    .email("Nolal@gmail.com")
                     .sexo(SexoEnum.F)
-                    .senha("senha1234")
+                    .senha("2445356ghd5")
                     .build();
 
-            Pet pet = Pet.builder()
-                    .nome("Jully")
-                    .especie("Cachorro")
-                    .raca("Vira lata")
-                    .dataNascimento(Date.valueOf("2015-12-12"))
-                    .pelagem("Média")
-                    .porte("Grande")
+            Tutor tutor3 = Tutor.builder()
+                    .nome("Lucia Lurdes")
+                    .dataNascimento(Date.valueOf("23-04-1993"))
+                    .telefone("11993857635")
+                    .email("lulu.lurdes@gmail.com")
                     .sexo(SexoEnum.F)
+                    .senha("233453564fghj")
+                    .build();
+
+            Tutor tutor4 = Tutor.builder()
+                    .nome("Mario Barros")
+                    .dataNascimento(Date.valueOf("27-08-2008"))
+                    .telefone("11993627104")
+                    .email("mariooo324@gmail.com")
+                    .sexo(SexoEnum.M)
+                    .senha("maa933452847")
+                    .build();
+
+            Tutor tutor5 = Tutor.builder()
+                    .nome("Luis Alfredo")
+                    .dataNascimento(Date.valueOf("14-11-1990"))
+                    .telefone("11903725364")
+                    .email("lui98437@gmail.com")
+                    .sexo(SexoEnum.M)
+                    .senha("92384792745")
+                    .build();
+
+            /*
+            tutorRepository.save(tutor1);
+            tutorRepository.save(tutor2);
+
+            Pet pet1 = Pet.builder()
+                    .nome("")
+                    .especie("")
+                    .raca("")
+                    .dataNascimento(Date.valueOf(""))
+                    .pelagem("")
+                    .porte("")
+                    .sexo(SexoEnum.M)
                     .status(StatusEnum.ATIVO)
-                    .tutores(Set.of(manu,carol))
+                    .urlImg("")
+                    .tutores(Set.of(tutor1,tutor2))
                     .build();
 
             petRepository.save(pet);
-
-
             manu.setPets(Set.of(pet));
             carol.setPets(Set.of(pet));
-
             tutorRepository.save(manu);
             tutorRepository.save(carol);
 
-            /*
-            User admin = User.builder()
-                    .email("admin@gmailcom")
-                    .name("TIO FULADO")
-                    .password("123456789DEIZ")
-                    .build();
-
-            User zemane = User.builder()
-                    .email("zemane@gmailcom")
-                    .name("ZE MANE")
-                    .password("123456789DEIZDINOVO")
-                    .build();
-
-            userRepository.save(admin);
-            userRepository.save(zemane);
-
-            Collection<Profile> profiles = new LinkedList<>();
-            profiles.add( Profile.builder()
-                    .bio("Some Bio")
-                    .imagePath("some image path")
-                    .user( admin )
-                    .build());
-
-            profiles.add( Profile.builder()
-                    .bio("Some Bio2")
-                    .imagePath("some image path2")
-                    .user( zemane)
-                    .build());
-
-            profileRepository.saveAll(profiles);
              */
-
-
-
-        /*
-        @Bean
-        CommandLineRunner initDataBIGGGGER(ProfileRepository profileRepository, UserRepository userRepository) {
-            return args -> {
-
-                int TOTAL = 10_000;
-                List<User> users = new ArrayList<>(TOTAL);
-
-                for (int i = 1; i <= TOTAL; i++) {
-                    users.add(User.builder()
-                            .email("user" + i + "@gmail.com")
-                            .name("User " + i)
-                            .password("password" + i)
-                            .build());
-                }
-
-                userRepository.saveAll(users);
-
-                List<Profile> profiles = new ArrayList<>(TOTAL);
-
-                for (int i = 0; i < TOTAL; i++) {
-                    profiles.add(Profile.builder()
-                            .bio("Bio of user " + (i + 1))
-                            .imagePath("/images/user" + (i + 1) + ".png")
-                            .user(users.get(i))
-                            .build());
-                }
-
-                profileRepository.saveAll(profiles);
-            };
-            */
         };
     }
 }

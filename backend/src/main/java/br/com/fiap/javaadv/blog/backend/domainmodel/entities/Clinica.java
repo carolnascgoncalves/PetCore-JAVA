@@ -20,12 +20,12 @@ public class Clinica {
     private @Getter @Setter UUID id;
 
     @NotBlank(message = "O cnpj é obrigatorio")
-    @Size(max = 14, message = "O cnpj deve ter 14 caracteres")
+    @Size(min= 14, max = 14, message = "O cnpj deve ter 14 caracteres")
     @Column(name = "CNPJ_cli", length = 14, nullable = false)
     private @Getter @Setter String cnpj;
 
     @NotBlank(message = "O nome é obrigatorio")
-    @Size(max = 100, message = "O nome deve ter no maximo 100 caracteres")
+    @Size(max = 100, message = "O nome deve ter entre 2 à 100 caracteres")
     @Column(name = "NOME_cli", length = 100, nullable = false)
     private @Getter @Setter String nome;
 
@@ -38,6 +38,7 @@ public class Clinica {
             joinColumns = @JoinColumn(name="ID_cli_(FK)"),
             inverseJoinColumns = @JoinColumn(name="ID_rel_(FK)")
     )
+    @Builder.Default
     private @Getter @Setter Set<Relatorio> relatorios;
 
     //endereco(1:1)

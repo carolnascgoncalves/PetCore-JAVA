@@ -19,11 +19,12 @@ public class Endereco {
     private @Getter @Setter UUID id;
 
     @NotBlank(message = "O cep é obrigatorio")
-    @Size(max = 8, message = "O cep deve ter no máximo 8 caracteres")
+    @Size(min = 8, max = 8, message = "O cep deve ter 8 caracteres")
     @Column(name = "CEP_end", length = 8, nullable = false)
     private @Getter @Setter String cep;
 
     @Column(name = "COMPL_end", length = 200)
+    @Size(min = 2,max = 200, message = "O complemento deve ter entre 2 à 200 caracteres")
     private @Getter @Setter String complemento;
 
 

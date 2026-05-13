@@ -21,7 +21,7 @@ public class Exame {
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
-    @Size(max=100, message="O nome deve ter no máximo 100 caracteres")
+    @Size(min=2,max=100, message="O nome deve ter entre 2 à 100 caracteres")
     @Column(name="NOME_ex", length = 100, nullable = false)
     private @Getter @Setter String nome;
 
@@ -30,7 +30,7 @@ public class Exame {
     private @Getter @Setter Date data;
 
     @NotBlank(message= "O tipo do exame é obrigatorio")
-    @Size(max=100, message="O tipo do exame deve ter no máximo 100 caracteres")
+    @Size(min=2,max=100, message="O tipo do exame deve ter entre 2 à 100 caracteres")
     @Column(name="TP_ex", length = 100, nullable = false)
     private @Getter @Setter String tipo;
 

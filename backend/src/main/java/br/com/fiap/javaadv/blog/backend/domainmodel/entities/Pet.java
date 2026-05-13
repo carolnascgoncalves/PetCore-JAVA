@@ -28,17 +28,17 @@ public class Pet {
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
-    @Size(max=100, message="O nome deve ter no máximo 100 caracteres")
+    @Size(min = 2, max=100, message="O nome deve ter entre 2 à 100 caracteres")
     @Column(name="NOME_pet", length = 100, nullable = false)
     private @Getter @Setter String nome;
 
     @NotBlank(message= "A especie é obrigatoria")
-    @Size(max=100, message="A especie deve ter no máximo 150 caracteres")
+    @Size(min = 2, max=100, message="A especie deve ter entre 2 à 150 caracteres")
     @Column(name="ESPECIE_pet", length = 150, nullable = false)
     private @Getter @Setter String especie;
 
     @NotBlank(message= "A raca é obrigatoria")
-    @Size(max=150, message="A raca deve ter no máximo 150 caracteres")
+    @Size(min = 2, max=150, message="A raca deve ter entre 2 à 150 caracteres")
     @Column(name="RACA_pet", length = 150, nullable = false)
     private @Getter @Setter String raca;
 
@@ -47,12 +47,12 @@ public class Pet {
     private @Getter @Setter Date dataNascimento;
 
     @NotBlank(message= "A pelagem é obrigatoria")
-    @Size(max=150, message="A pelagem deve ter no máximo 150 caracteres")
+    @Size(min =2, max=150, message="A pelagem deve ter entre 2 à 150 caracteres")
     @Column(name="PELAGEM_pet", length = 150, nullable = false)
     private @Getter @Setter String pelagem;
 
     @NotBlank(message= "O porte é obrigatorio")
-    @Size(max=25, message="O porte deve ter no máximo 25 caracteres")
+    @Size(min = 2, max=25, message="O porte deve ter entre 2 à 25 caracteres")
     @Column(name="PORTE_pet", length = 25, nullable = false)
     private @Getter @Setter String porte;
 

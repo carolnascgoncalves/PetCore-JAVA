@@ -22,7 +22,7 @@ public class Receita {
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
-    @Size(max=100, message="O nome deve ter no máximo 100 caracteres")
+    @Size(min = 2, max=100, message="O nome deve ter entre 2 à 100 caracteres")
     @Column(name="NOME_rec", length = 100, nullable = false)
     private @Getter @Setter String nome;
 
