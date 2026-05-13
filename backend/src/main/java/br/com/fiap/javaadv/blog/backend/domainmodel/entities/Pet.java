@@ -2,6 +2,7 @@ package br.com.fiap.javaadv.blog.backend.domainmodel.entities;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.StatusEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -68,6 +69,7 @@ public class Pet {
 
     //Relacionamentos
     //tutores(n:n)
+    @JsonIgnore
     @ManyToMany( mappedBy = "pets", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Tutor> tutores;
 

@@ -65,5 +65,6 @@ public class Tutor {
             joinColumns = @JoinColumn(name="ID_tut_(FK)"),
             inverseJoinColumns = @JoinColumn(name="ID_pet_(FK)")
     )
+    @Builder.Default
     private @Getter @Setter Set<Pet> pets = new HashSet<>();
 }

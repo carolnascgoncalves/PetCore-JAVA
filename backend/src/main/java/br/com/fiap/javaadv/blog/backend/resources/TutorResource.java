@@ -45,8 +45,10 @@ public class TutorResource {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable UUID id){
-        if( this.tutorService.existsById(id))
+        if( this.tutorService.existsById(id)) {
+            this.tutorService.delete(id);
             return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.notFound().build();
 
     }
@@ -55,6 +57,7 @@ public class TutorResource {
     public ResponseEntity<List<TutorResponse>> fetchAll(Pageable pageable){
         return ResponseEntity.ok(
                 this.tutorService.fetchAll(pageable)
+                        .getContent()
                         .stream()
                         .map(TutorResponse::toDto)
                         .collect(Collectors.toList())

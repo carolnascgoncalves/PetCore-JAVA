@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class HistoricoResponse {
     private @Getter @Setter UUID id;
 
+    @Builder.Default
     private @Getter @Setter StatusEnum status = StatusEnum.ATIVO;
 
     private @Getter @Setter Set<UUID> idProntuarios;

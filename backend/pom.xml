@@ -1,218 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.5.0</version>
+		<relativePath/>
 	</parent>
+
 	<groupId>br.com.fiap.javaadv.blog</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+
 	<properties>
 		<java.version>21</java.version>
 		<querydsl.version>5.1.0</querydsl.version>
 	</properties>
+
 	<dependencies>
+
+		<!-- WEB -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-h2console</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<!-- JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!-- VALIDATION -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<!-- HATEOAS
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc</artifactId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>-->
+
+		<!-- CACHE -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 
+		<!-- DEVTOOLS -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- ORACLE -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc11</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- LOMBOK -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.38</version>
+			<scope>provided</scope>
 		</dependency>
 
-		<!-- BEGIN OF QUERYDSL DEPENDENCIES -->
+		<!-- QUERYDSL
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
 			<version>${querydsl.version}</version>
 			<classifier>jakarta</classifier>
 		</dependency>
-		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<version>${querydsl.version}</version>
-			<classifier>jakarta</classifier>
-		</dependency>
+
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-core</artifactId>
 			<version>${querydsl.version}</version>
-
 		</dependency>
-		<!-- END OF QUERYDSL DEPENDENCIES-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webmvc-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+		-->
 
-		<!-- END OF CACHE DEPS CONFIGURATION-->
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
-
-		<!--		<dependency>-->
-		<!--			<groupId>com.github.ben-manes.caffeine</groupId>-->
-		<!--			<artifactId>caffeine</artifactId>-->
-		<!--			<version>3.1.8</version> &lt;!&ndash; ou última versão estável &ndash;&gt;-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate.orm</groupId>-->
-		<!--			<artifactId>hibernate-core</artifactId>-->
-		<!--			<version>6.6.11.Final</version> &lt;!&ndash; Ou a versão compatível com Spring Boot 3.4.x &ndash;&gt;-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate</groupId>-->
-		<!--			<artifactId>hibernate-jcache</artifactId>-->
-		<!--			<version>6.6.11.Final</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.hibernate</groupId>-->
-		<!--			<artifactId>hibernate-ehcache</artifactId>-->
-		<!--			<version>6.0.0.Alpha7</version>-->
-		<!--		</dependency>-->
-
-		<!-- END OF CACHE DEPS CONFIGURATION-->
-
-
-		<!-- INIT OF OPEN API DOCS DEPS CONFIURATION -->
-		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
-
-		<!--		<dependency>-->
-		<!--			<groupId>org.springdoc</groupId>-->
-		<!--			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>-->
-		<!--			<version>2.8.5</version>-->
-		<!--		</dependency>-->
-		<!--		<dependency>-->
-		<!--			<groupId>org.springdoc</groupId>-->
-		<!--			<artifactId>springdoc-openapi-starter-common</artifactId>-->
-		<!--			<version>2.8.5</version>-->
-		<!--		</dependency>-->
-		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
-		<!--		<dependency>-->
-		<!--			<groupId>io.swagger.core.v3</groupId>-->
-		<!--			<artifactId>swagger-annotations</artifactId>-->
-		<!--			<version>2.2.4</version>-->
-		<!--		</dependency>-->
-		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-core -->
-		<!--		<dependency>-->
-		<!--			<groupId>io.swagger.core.v3</groupId>-->
-		<!--			<artifactId>swagger-core</artifactId>-->
-		<!--			<version>2.2.4</version>-->
-		<!--		</dependency>-->
-		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-models -->
-		<!--		<dependency>-->
-		<!--			<groupId>io.swagger.core.v3</groupId>-->
-		<!--			<artifactId>swagger-models</artifactId>-->
-		<!--			<version>2.2.4</version>-->
-		<!--		</dependency>-->
-
+		<!-- OPENAPI / SWAGGER -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.8.5</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-restdocs</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.restdocs</groupId>
-			<artifactId>spring-restdocs-mockmvc</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- END OF OPEN API DOCS DEPS CONFIURATION -->
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- INIT OF SPRING SECURITY DEPS -->
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas</artifactId>
-		</dependency>
-
-		<!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency> -->
+		<!-- JWT -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
 			<version>0.11.5</version>
 		</dependency>
+
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-impl</artifactId>
@@ -226,59 +125,24 @@
 			<version>0.11.5</version>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- INIT OF SPRING SECURITY DEPS -->
 
+		<!-- TEST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.asciidoctor</groupId>
-				<artifactId>asciidoctor-maven-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>generate-docs</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>process-asciidoc</goal>
-						</goals>
-						<configuration>
-							<backend>html</backend>
-							<doctype>book</doctype>
-						</configuration>
-					</execution>
-				</executions>
-				<dependencies>
-					<!-- Source: https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-asciidoctor -->
-					<!--<dependency>
-						<groupId>org.springframework.restdocs</groupId>
-						<artifactId>spring-restdocs-asciidoctor</artifactId>
-						<version>3.0.0</version>
-						<scope>compile</scope>
-					</dependency>-->
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.springframework.boot</groupId>
-							<artifactId>spring-boot-configuration-processor</artifactId>
-						</path>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
+
+			<!-- SPRING BOOT -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 				<configuration>
 					<excludes>
 						<exclude>
@@ -288,33 +152,36 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<!-- COMPILER -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.14.1</version>
 
 				<configuration>
-					<annotationProcessorPaths>
+					<source>21</source>
+					<target>21</target>
 
-						<path>
-							<groupId>org.springframework.boot</groupId>
-							<artifactId>spring-boot-configuration-processor</artifactId>
-						</path>
+					<annotationProcessorPaths>
 
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>1.18.38</version>
 						</path>
 
-						<path>
+						<!-- <path>
 							<groupId>com.querydsl</groupId>
 							<artifactId>querydsl-apt</artifactId>
 							<version>${querydsl.version}</version>
 							<classifier>jakarta</classifier>
-						</path>
+						</path> -->
 
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 

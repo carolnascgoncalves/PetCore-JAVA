@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class HistoricoRequest {
     private @Getter @Setter Date data;
 
+    @Builder.Default
     private @Getter @Setter StatusEnum status = StatusEnum.ATIVO;
 
     private @Getter @Setter Set<UUID> idProntuarios;
