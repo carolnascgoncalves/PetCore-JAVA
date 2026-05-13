@@ -10,7 +10,7 @@ import java.util.UUID;
 public interface MedicoService {
     Medico create(Medico medico);
 
-    Optional<Medico> update(UUID id, Medico tutor);
+    Optional<Medico> update(UUID id, Medico medico);
 
     void delete(UUID id);
 

@@ -38,19 +38,19 @@ public class PetResource {
                 .body(petRequest.toDto(savedPet));
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<PetRequest> update(@PathVariable UUID id, @Valid @RequestBody PetRequest dadosDto){
-        return this.petService.update(id, PetRequest.toEntity(dadosDto))
+    @PatchMapping("/status/{id}")
+    public ResponseEntity<PetDadosRequest> updateStatus(@PathVariable UUID id, @Valid @RequestBody PetDadosRequest dadosDto){
+        return this.petService.updateStatus(id, PetDadosRequest.toEntity(dadosDto))
                 .map(pet ->
-                        ResponseEntity.ok(PetRequest.toDto(pet)))
+                        ResponseEntity.ok(PetDadosRequest.toDto(pet)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 
-    @PatchMapping("/status/{id}")
-    public ResponseEntity<PetRequest> updateStatus(@PathVariable UUID id, @Valid @RequestBody PetRequest dadosDto){
-        return this.petService.update(id, PetRequest.toEntity(dadosDto))
+    @PatchMapping("/imagem/{id}")
+    public ResponseEntity<PetImgRequest> updateImage(@PathVariable UUID id, @Valid @RequestBody PetImgRequest dadosDto){
+        return this.petService.updateImage(id, PetImgRequest.toEntity(dadosDto))
                 .map(pet ->
-                        ResponseEntity.ok(PetRequest.toDto(pet)))
+                        ResponseEntity.ok(PetImgRequest.toDto(pet)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 

@@ -304,44 +304,34 @@ public class DataLoader {
                     .receitas(Set.of(rec4, rec6, rec2))
                     .build());
 
-            // ================= RELACIONAMENTO RECEITA X MEDICAMENTO =================
-
-            rec1.setMedicamentos(Set.of(m1, m3));
-            rec2.setMedicamentos(Set.of(m1, m2, m6));
-            rec3.setMedicamentos(Set.of(m3, m5));
-            rec4.setMedicamentos(Set.of(m3, m6));
-            rec5.setMedicamentos(Set.of(m4));
-            rec6.setMedicamentos(Set.of(m4, m5, m6));
-
-            receitaRep.save(rec1);
-            receitaRep.save(rec2);
-            receitaRep.save(rec3);
-            receitaRep.save(rec4);
-            receitaRep.save(rec5);
-            receitaRep.save(rec6);
 
             // ================= RELATÓRIOS =================
             Relatorio r1 = relatorioRep.save(Relatorio.builder()
+                    .observacao("Paciente apresentou alteração hormonal e iniciou acompanhamento clínico.")
                     .historico(hist1)
                     .medico(med1)
                     .build());
 
             Relatorio r2 = relatorioRep.save(Relatorio.builder()
+                    .observacao("Paciente apresentou melhora significativa após tratamento de hipotermia.")
                     .historico(hist2)
                     .medico(med3)
                     .build());
 
             Relatorio r3 = relatorioRep.save(Relatorio.builder()
+                    .observacao("Paciente apresentou episódios de febre e fadiga durante a consulta.")
                     .historico(hist3)
                     .medico(med3)
                     .build());
 
             Relatorio r4 = relatorioRep.save(Relatorio.builder()
+                    .observacao("Suspeita clínica de diabetes. Solicitados exames complementares.")
                     .historico(hist4)
                     .medico(med1)
                     .build());
 
             Relatorio r5 = relatorioRep.save(Relatorio.builder()
+                    .observacao("Paciente segue em acompanhamento hormonal com resposta positiva ao tratamento.")
                     .historico(hist5)
                     .medico(med1)
                     .build());
@@ -384,33 +374,160 @@ public class DataLoader {
                     .relatorios(Set.of(r4, r5))
                     .build());
 
+            // ================= PRONTUARIOS =================
+            Prontuario pront1 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2026-05-08"))
+                    .descricao("Paciente apresentou alteração hormonal. Tratamento iniciado.")
+                    .medico(med1)
+                    .exames(Set.of(ex1, ex2))
+                    .receitas(Set.of())
+                    .historico(hist1)
+                    .build());
+
+            Prontuario pront2 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2025-01-07"))
+                    .descricao("Paciente apresentou melhora do tratamento de hipotermia.")
+                    .medico(med2)
+                    .exames(Set.of())
+                    .receitas(Set.of(rec6))
+                    .historico(hist2)
+                    .build());
+
+            Prontuario pront3 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2025-11-20"))
+                    .descricao("Paciente apresentou febre alta e fadiga. Tratamento iniciado.")
+                    .medico(med3)
+                    .exames(Set.of(ex5, ex6))
+                    .receitas(Set.of(rec3))
+                    .historico(hist3)
+                    .build());
+
+            Prontuario pront4 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2026-02-13"))
+                    .descricao("Paciente apresentou sintomas de diabetes. Tratamento iniciado.")
+                    .medico(med2)
+                    .exames(Set.of(ex4))
+                    .receitas(Set.of(rec4))
+                    .historico(hist4)
+                    .build());
+
+            Prontuario pront5 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2026-03-09"))
+                    .descricao("Paciente apresentou alteração hormonal. Necessário controle contínuo.")
+                    .medico(med2)
+                    .exames(Set.of())
+                    .receitas(Set.of(rec1, rec5))
+                    .historico(hist5)
+                    .build());
+
+            Prontuario pront6 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2026-05-02"))
+                    .descricao("Paciente apresentou sintomas da doença do carrapato. Tratamento iniciado.")
+                    .medico(med1)
+                    .exames(Set.of(ex3))
+                    .receitas(Set.of(rec2))
+                    .historico(hist3)
+                    .build());
+
+            Prontuario pront7 = prontuarioRep.save(Prontuario.builder()
+                    .data(Date.valueOf("2026-04-22"))
+                    .descricao("Paciente apresentou melhora no tratamento da diarreia.")
+                    .medico(med3)
+                    .exames(Set.of())
+                    .receitas(Set.of())
+                    .historico(hist5)
+                    .build());
+
             // ================= RELACIONAMENTOS (DEPOIS DO SAVE) =================
 
             tutor1.setPets(Set.of(pet1));
             tutor2.setPets(Set.of(pet2, pet3));
             tutor3.setPets(Set.of(pet4, pet5));
 
+            //========================================
             pet1.setHistorico(hist1);
             pet2.setHistorico(hist2);
             pet3.setHistorico(hist3);
             pet4.setHistorico(hist4);
             pet5.setHistorico(hist5);
 
+            //========================================
+            med1.setRelatorios(Set.of(r1,r4));
+            med2.setRelatorios(Set.of(r5));
+            med3.setRelatorios(Set.of(r2,r3));
+            //----------------------------
+            med1.setProntuarios(Set.of(pront1,pront6));
+            med2.setProntuarios(Set.of(pront2,pront4,pront5));
+            med3.setProntuarios(Set.of(pront3,pront7));
+            //----------------------------
+            med1.setExames(Set.of(ex1,ex2));
+            med2.setExames(Set.of(ex5,ex6));
+            med3.setExames(Set.of(ex3,ex4));
+            //----------------------------
+            med1.setReceitas(Set.of(rec2,rec5));
+            med2.setReceitas(Set.of(rec1,rec3));
+            med3.setReceitas(Set.of(rec4,rec6));
+
+            //========================================
             hist1.setRelatorios(Set.of(r1));
             hist2.setRelatorios(Set.of(r2));
             hist3.setRelatorios(Set.of(r3));
             hist4.setRelatorios(Set.of(r4));
             hist5.setRelatorios(Set.of(r5));
+            //----------------------------
+            hist1.setProntuarios(Set.of(pront1));
+            hist2.setProntuarios(Set.of(pront2));
+            hist3.setProntuarios(Set.of(pront3, pront6));
+            hist4.setProntuarios(Set.of(pront4));
+            hist5.setProntuarios(Set.of(pront5, pront7));
+            //----------------------------
+            hist1.setPet(pet1);
+            hist2.setPet(pet2);
+            hist3.setPet(pet3);
+            hist4.setPet(pet4);
+            hist5.setPet(pet5);
 
-            hist1.setProntuarios(Set.of());
-            hist2.setProntuarios(Set.of());
-            hist3.setProntuarios(Set.of());
-            hist4.setProntuarios(Set.of());
-            hist5.setProntuarios(Set.of());
+            //========================================
+            rec1.setMedicamentos(Set.of(m1, m3));
+            rec2.setMedicamentos(Set.of(m1, m2, m6));
+            rec3.setMedicamentos(Set.of(m3, m5));
+            rec4.setMedicamentos(Set.of(m3, m6));
+            rec5.setMedicamentos(Set.of(m4));
+            rec6.setMedicamentos(Set.of(m4, m5, m6));
+            //========================================
+            ex1.setProntuario(pront1);
+            ex2.setProntuario(pront1);
+            ex3.setProntuario(pront6);
+            ex4.setProntuario(pront4);
+            ex5.setProntuario(pront3);
+            ex6.setProntuario(pront3);
 
-            med1.setExames(Set.of(ex1, ex2));
-            med2.setExames(Set.of(ex5, ex6));
-            med3.setExames(Set.of(ex3, ex4));
+            //========================================
+            rec1.setProntuario(pront5);
+            rec2.setProntuario(pront6);
+            rec3.setProntuario(pront3);
+            rec4.setProntuario(pront4);
+            rec5.setProntuario(pront5);
+            rec6.setProntuario(pront2);
+            //----------------------------
+            rec1.setMedicamentos(Set.of(m1, m3));
+            rec2.setMedicamentos(Set.of(m1, m2, m6));
+            rec3.setMedicamentos(Set.of(m3, m5));
+            rec4.setMedicamentos(Set.of(m3, m6));
+            rec5.setMedicamentos(Set.of(m4));
+            rec6.setMedicamentos(Set.of(m4, m5, m6));
+
+            //========================================
+            r1.setClinicas(Set.of(cli1));
+            r2.setClinicas(Set.of(cli1));
+            r3.setClinicas(Set.of(cli2));
+            r4.setClinicas(Set.of(cli3));
+            r5.setClinicas(Set.of(cli3));
+            //========================================
+            end1.setClinica(cli1);
+            end2.setClinica(cli2);
+            end3.setClinica(cli3);
+
         };
     }
 }

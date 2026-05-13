@@ -42,7 +42,7 @@ public class HistoricoResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<HistoricoResponse>> fetchAll(@PageableDefault(page = 0, size = 10) Pageable pageable){
+    public ResponseEntity<List<HistoricoResponse>> fetchAll(Pageable pageable){
         return ResponseEntity.ok(
                 this.historicoService.fetchAll(pageable)
                         .stream()

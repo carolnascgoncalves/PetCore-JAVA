@@ -41,8 +41,8 @@ public class MedicoResource {
     @PatchMapping("/{id}")
     public ResponseEntity<UserDadosRequest> update(@PathVariable UUID id, @Valid @RequestBody UserDadosRequest dadosDto){
         return this.medicoService.update(id, UserDadosRequest.toEntityMed(dadosDto))
-                .map(tutor ->
-                        ResponseEntity.ok(UserDadosRequest.toDtoMed(tutor)))
+                .map(med ->
+                        ResponseEntity.ok(UserDadosRequest.toDtoMed(med)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 
@@ -72,11 +72,11 @@ public class MedicoResource {
                 .orElseGet( () -> ResponseEntity.notFound().build() );
     }
 
-    @GetMapping("/login")
-    public Optional<Medico> fetchById(String email, String senha){
-        Optional<Medico> medico = medicoService.fetchByEmail(email, senha);
-        if(medico.isPresent() && medico.get().getSenha().equals(senha)){return medico;}
-
-        return Optional.empty();
+    @PostMapping("/login")
+    public ResponseEntity<MedicoResponse> fetchByEmail(@RequestBody UserLoginRequest loginDto) {
+        return medicoService.fetchByEmail(loginDto.getEmail(), loginDto.getSenha())
+                .map(med -> ResponseEntity.ok(MedicoResponse.toDto(med)))
+                .orElseGet(() -> ResponseEntity.notFound()
+                        .build());
     }
 }

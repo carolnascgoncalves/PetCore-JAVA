@@ -71,4 +71,7 @@ public class Medico {
 
     @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Exame> exames;
+
+    @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
+    private @Getter @Setter Set<Receita> receitas;
 }

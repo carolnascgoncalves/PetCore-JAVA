@@ -11,9 +11,9 @@ import java.util.UUID;
 public interface PetService {
     Pet create(Pet pet);
 
-    Optional<Pet> updateStatus(UUID id, StatusEnum status);
+    Optional<Pet> updateStatus(UUID id, Pet pet);
 
-    Optional<Pet> update(UUID id, Pet pet);
+    Optional<Pet> updateImage(UUID id, Pet pet);
 
     Page<Pet> fetchAll(Pageable pageable);
 

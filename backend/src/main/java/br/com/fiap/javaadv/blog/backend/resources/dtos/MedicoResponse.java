@@ -1,9 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Exame;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Prontuario;
-import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Relatorio;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.*;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.SexoEnum;
 
 import lombok.*;
@@ -39,6 +36,9 @@ public class MedicoResponse {
 
     private @Getter @Setter Set<UUID> idExames;
 
+    private @Getter @Setter Set<UUID> idReceitas;
+
+
 
     public static MedicoResponse toDto(final Medico medico) {
 
@@ -68,6 +68,12 @@ public class MedicoResponse {
                         medico.getExames()
                                 .stream()
                                 .map(Exame::getId)
+                                .collect(Collectors.toSet())
+                )
+                .idReceitas(
+                        medico.getReceitas()
+                                .stream()
+                                .map(Receita::getId)
                                 .collect(Collectors.toSet())
                 )
                 .build();

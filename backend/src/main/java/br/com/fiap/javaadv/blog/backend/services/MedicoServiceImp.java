@@ -1,7 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
-import br.com.fiap.javaadv.blog.backend.datasource.repositories.MedicoRepository;
-import br.com.fiap.javaadv.blog.backend.datasource.repositories.TutorRepository;
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.*;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Tutor;
 import lombok.RequiredArgsConstructor;
@@ -20,25 +19,54 @@ import java.util.UUID;
 public class MedicoServiceImp implements MedicoService{
     private final MedicoRepository medicoRepository;
 
+    private final ExameRepository exameRepository;
+    private final RelatorioRepository relatorioRepository;
+    private final ProntuarioRepository prontuarioRepository;
+    private final ReceitaRepository receitaRepository;
+
     @Override
     public Medico create(Medico medico){
         return this.medicoRepository.save(medico);
     }
 
     @Override
-    public Optional<Medico> update(UUID id, Medico medico){
-        if(this.medicoRepository.existsById(id)){
-            medico.setId(id);
-            this.medicoRepository.save(medico);
+    public Optional<Medico> update(UUID id, Medico patch){
+        return medicoRepository.findById(id)
+                .map(existing -> {
 
-            return Optional.of(medico);
-        }
-        return Optional.empty();
+                    if (patch.getEmail() != null)
+                        existing.setEmail(patch.getEmail());
+
+                    if (patch.getTelefone() != null)
+                        existing.setTelefone(patch.getTelefone());
+
+                    if (patch.getSenha() != null)
+                        existing.setSenha(patch.getSenha());
+
+                    if (patch.getUrlImg() != null)
+                        existing.setUrlImg(patch.getUrlImg());
+
+                    return medicoRepository.save(existing);
+                });
     }
 
     @Override
-    public void delete(UUID id){
-        medicoRepository.deleteById(id);
+    public void delete(UUID id) {
+        Medico medico = medicoRepository.findById(id).orElseThrow();
+
+        medico.getRelatorios().forEach(rel -> rel.setMedico(null));
+        relatorioRepository.saveAll(medico.getRelatorios());
+
+        medico.getProntuarios().forEach(pront -> pront.setMedico(null));
+        prontuarioRepository.saveAll(medico.getProntuarios());
+
+        medico.getExames().forEach(exame -> exame.setMedico(null));
+        exameRepository.saveAll(medico.getExames());
+
+        medico.getReceitas().forEach(rec -> rec.setMedico(null));
+        receitaRepository.saveAll(medico.getReceitas());
+
+        medicoRepository.delete(medico);
     }
 
     @Override

@@ -25,24 +25,29 @@ public class PetServiceImp implements PetService {
     }
 
     @Override
-    public Optional<Pet> updateStatus(UUID id, StatusEnum status) {
-        if( this.petRepository.existsById( id ) ){
-            Optional<Pet> pet = petRepository.findById(id);
-            pet.get().setStatus(status);
+    public Optional<Pet> updateStatus(UUID id, Pet patch) {
+        return petRepository.findById(id)
+                .map(existing -> {
 
-            return Optional.of(petRepository.save(pet.get()));
-        }
-        return Optional.empty();
+                    if (patch.getStatus() != null)
+                        existing.setStatus(patch.getStatus());
+
+                    return petRepository.save(existing);
+                });
     }
 
     @Override
-    public Optional<Pet> update(UUID id, Pet pet) {
-        if( this.petRepository.existsById( id ) ){
-            pet.setId(id);
-            return Optional.of(petRepository.save(pet));
-        }
-        return Optional.empty();
+    public Optional<Pet> updateImage(UUID id, Pet patch) {
+        return petRepository.findById(id)
+                .map(existing -> {
+
+                    if (patch.getUrlImg() != null)
+                        existing.setUrlImg(patch.getUrlImg());
+
+                    return petRepository.save(existing);
+                });
     }
+
 
     @Override
     @Transactional(propagation = Propagation.NEVER)

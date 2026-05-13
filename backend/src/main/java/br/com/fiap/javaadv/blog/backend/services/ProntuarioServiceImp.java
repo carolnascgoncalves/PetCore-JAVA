@@ -24,12 +24,15 @@ public class ProntuarioServiceImp implements ProntuarioService{
     }
 
     @Override
-    public Optional<Prontuario> update(UUID id, Prontuario prontuario) {
-        if(this.prontuarioRepository.existsById(id)){
-            prontuario.setId(id);
-            return Optional.of(prontuario);
-        }
-        return Optional.empty();
+    public Optional<Prontuario> update(UUID id, Prontuario patch) {
+        return prontuarioRepository.findById(id)
+                .map(existing -> {
+
+                    if (patch.getDescricao() != null)
+                        existing.setDescricao(patch.getDescricao());
+
+                    return prontuarioRepository.save(existing);
+                });
     }
 
     @Override

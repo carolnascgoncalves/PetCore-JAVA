@@ -39,10 +39,10 @@ public class ProntuarioResource {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ProntuarioRequest> update(@PathVariable UUID id, @Valid @RequestBody ProntuarioRequest dadosDto){
-        return this.prontuarioService.update(id, ProntuarioRequest.toEntity(dadosDto))
-                .map(prontuario ->
-                        ResponseEntity.ok(ProntuarioRequest.toDto(prontuario)))
+    public ResponseEntity<ProntuarioDadosRequest> update(@PathVariable UUID id, @Valid @RequestBody ProntuarioDadosRequest dadosDto){
+        return this.prontuarioService.update(id, ProntuarioDadosRequest.toEntity(dadosDto))
+                .map(tutor ->
+                        ResponseEntity.ok(ProntuarioDadosRequest.toDto(tutor)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 

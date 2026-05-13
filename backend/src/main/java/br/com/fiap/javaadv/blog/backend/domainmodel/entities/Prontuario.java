@@ -39,12 +39,12 @@ public class Prontuario {
     private @Getter @Setter Medico medico;
 
     //exame (1:n)
-    @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prontuario", fetch = FetchType.LAZY)
     @Builder.Default
     private @Getter @Setter Set<Exame> exames = new HashSet<>();
 
     //receita (1:n)
-    @OneToMany(mappedBy = "prontuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prontuario", fetch = FetchType.LAZY)
     @Builder.Default
     private @Getter @Setter Set<Receita> receitas = new HashSet<>();
 

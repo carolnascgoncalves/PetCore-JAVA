@@ -41,7 +41,7 @@ public class HistoricoResponse {
                                 .map(relatorio -> relatorio.getId())
                                 .collect(Collectors.toSet())
                 )
-                .idPet(historico.getPet().getId())
+                .idPet(historico.getPet() != null ? historico.getPet().getId() : null)
                 .build();
     }
 }
