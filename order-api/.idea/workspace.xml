@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="18050223-3776-4d68-9b0d-685355b40cc6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/ExameRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/HistoricoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/MedicamentoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/MedicoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/PetRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/ProntuarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/ReceitaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/RelatorioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/TutorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/domainmodel/enums/StatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/resources/TutorResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/PetService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/PetServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/ProntuarioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/ProntuarioServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/ReceitaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/ReceitaServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/RelatorioService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/RelatorioServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/TutorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/TutorServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/BackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/BackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/OrderItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/OrderItemRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/EnderecoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/OrderItemRepositoryCustomImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/OrderRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/ClinicaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/OrderRepositoryCustomImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/PostRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/ProfileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/TagRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/datasource/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/domainmodel/entities/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/domainmodel/entities/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/infrastructure/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/infrastructure/DataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/resources/dtos/TutorCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/resources/dtos/TutorCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/resources/dtos/UserDadosRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/resources/dtos/UserDadosRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/ProfileServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/br/com/fiap/javaadv/blog/backend/services/ProfileServiceImp.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3Dafk0BipOpBn0lI3MB93xui00D" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/carol/OneDrive/Área de Trabalho/FIAP/Challenge - Clyvo/PetCore-JAVA/order-api",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="OrderApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="order-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.fiap.javaadv.tds2pj.order_api.OrderApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="18050223-3776-4d68-9b0d-685355b40cc6" name="Changes" comment="" />
+      <created>1778525242886</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778525242886</updated>
+      <workItem from="1778525244020" duration="40000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

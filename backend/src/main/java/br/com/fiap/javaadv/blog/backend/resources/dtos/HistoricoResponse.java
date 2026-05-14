@@ -20,8 +20,6 @@ public class HistoricoResponse {
 
     private @Getter @Setter Set<UUID> idProntuarios;
 
-    private @Getter @Setter Set<UUID> idRelatorios;
-
     private @Getter @Setter UUID idPet;
 
     public static HistoricoResponse toDto(final Historico historico) {
@@ -33,12 +31,6 @@ public class HistoricoResponse {
                         historico.getProntuarios()
                                 .stream()
                                 .map(prontuario -> prontuario.getId())
-                                .collect(Collectors.toSet())
-                )
-                .idRelatorios(
-                        historico.getRelatorios()
-                                .stream()
-                                .map(relatorio -> relatorio.getId())
                                 .collect(Collectors.toSet())
                 )
                 .idPet(historico.getPet() != null ? historico.getPet().getId() : null)

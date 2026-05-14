@@ -528,6 +528,14 @@ public class DataLoader {
             end2.setClinica(cli2);
             end3.setClinica(cli3);
 
+            // ================= SAVE RELACIONAMENTOS =================
+            petRep.saveAll(Set.of(pet1, pet2, pet3, pet4, pet5));
+            prontuarioRep.saveAll(Set.of(pront1, pront2, pront3, pront4, pront5, pront6, pront7));
+            exameRep.saveAll(Set.of(ex1, ex2, ex3, ex4, ex5, ex6));
+            receitaRep.saveAll(Set.of(rec1, rec2, rec3, rec4, rec5, rec6));
+            relatorioRep.saveAll(Set.of(r1, r2, r3, r4, r5));
+            enderecoRep.saveAll(Set.of(end1, end2, end3));
+
         };
     }
 }

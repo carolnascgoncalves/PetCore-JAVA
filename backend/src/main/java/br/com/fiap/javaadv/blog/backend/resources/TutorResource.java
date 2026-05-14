@@ -5,7 +5,9 @@ import br.com.fiap.javaadv.blog.backend.resources.dtos.*;
 import br.com.fiap.javaadv.blog.backend.services.TutorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -54,7 +56,7 @@ public class TutorResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<TutorResponse>> fetchAll(Pageable pageable){
+    public ResponseEntity<List<TutorResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.tutorService.fetchAll(pageable)
                         .getContent()

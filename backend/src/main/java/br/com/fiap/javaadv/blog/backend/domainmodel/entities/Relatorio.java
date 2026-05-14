@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -38,4 +39,16 @@ public class Relatorio {
     //clinica (n:n)
     @ManyToMany( mappedBy = "relatorios", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Clinica> clinicas;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Relatorio relatorio = (Relatorio) o;
+        return Objects.equals(id, relatorio.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

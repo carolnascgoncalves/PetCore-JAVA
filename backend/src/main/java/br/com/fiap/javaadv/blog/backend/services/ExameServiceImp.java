@@ -26,14 +26,21 @@ public class ExameServiceImp implements ExameService{
     }
 
     @Override
-    public Optional<Exame> update(UUID id, Exame exame){
-        if(this.exameRepository.existsById(id)){
-            exame.setId(id);
-            this.exameRepository.save(exame);
+    public Optional<Exame> update(UUID id, Exame patch){
+        return exameRepository.findById(id)
+                .map(existing -> {
 
-            return Optional.of(exame);
-        }
-        return Optional.empty();
+                    if (patch.getNome() != null)
+                        existing.setNome(patch.getNome());
+
+                    if (patch.getData() != null)
+                        existing.setData(patch.getData());
+
+                    if (patch.getTipo() != null)
+                        existing.setTipo(patch.getTipo());
+
+                    return exameRepository.save(existing);
+                });
     }
 
     @Override

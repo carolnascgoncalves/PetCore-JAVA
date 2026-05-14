@@ -24,7 +24,7 @@ public class EnderecoResponse {
                 .id(endereco.getId())
                 .cep(endereco.getCep())
                 .complemento(endereco.getComplemento())
-                .idClinica(endereco.getClinica().getId())
+                .idClinica(endereco.getClinica() != null ? endereco.getClinica().getId() : null)
                 .build();
     }
 }

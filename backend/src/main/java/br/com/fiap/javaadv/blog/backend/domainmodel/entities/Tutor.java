@@ -67,4 +67,16 @@ public class Tutor {
     )
     @Builder.Default
     private @Getter @Setter Set<Pet> pets = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Tutor tutor = (Tutor) o;
+        return Objects.equals(id, tutor.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

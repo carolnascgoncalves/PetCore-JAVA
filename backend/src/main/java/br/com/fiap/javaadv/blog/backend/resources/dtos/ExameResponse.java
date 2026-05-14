@@ -17,6 +17,7 @@ public class ExameResponse {
     private @Getter @Setter UUID idMedico;
     private @Getter @Setter String nomeMedico;
     private @Getter @Setter String urlImgMed;
+    private @Getter @Setter UUID idProntuario;
 
     public static ExameResponse toDto(final Exame exame) {
 
@@ -29,6 +30,7 @@ public class ExameResponse {
                 .idMedico(exame.getMedico() != null ? exame.getMedico().getId() : null)
                 .nomeMedico(exame.getMedico() != null ? exame.getMedico().getNome() : null)
                 .urlImgMed(exame.getMedico() != null ? exame.getMedico().getUrlImg() : null)
+                .idProntuario(exame.getProntuario() != null ? exame.getProntuario().getId() : null)
                 .build();
     }
 }

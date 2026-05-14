@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.HistoricoRepository;
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.PetRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Pet;
 import br.com.fiap.javaadv.blog.backend.domainmodel.enums.StatusEnum;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Transactional( propagation = Propagation.REQUIRED)
 public class PetServiceImp implements PetService {
     private final PetRepository petRepository;
+    private final HistoricoRepository historicoRepository;
 
     @Override
     public Pet create(Pet pet) {
@@ -75,6 +77,11 @@ public class PetServiceImp implements PetService {
 
     @Override
     public void delete(UUID id) {
-        petRepository.deleteById(id);
+        Pet pet = petRepository.findById(id).orElseThrow();
+
+        pet.getHistorico().setPet(null);
+        historicoRepository.save(pet.getHistorico());
+
+        petRepository.delete(pet);
     }
 }

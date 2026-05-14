@@ -2,14 +2,12 @@ package br.com.fiap.javaadv.blog.backend.resources;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Clinica;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Endereco;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.ClinicaRequest;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.ClinicaResponse;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.EnderecoRequest;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.EnderecoResponse;
+import br.com.fiap.javaadv.blog.backend.resources.dtos.*;
 import br.com.fiap.javaadv.blog.backend.services.ClinicaService;
 import br.com.fiap.javaadv.blog.backend.services.EnderecoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -42,10 +40,10 @@ public class ClinicaResource {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ClinicaRequest> update(@PathVariable UUID id, @Valid @RequestBody ClinicaRequest dadosDto){
-        return this.clinicaService.update(id, ClinicaRequest.toEntity(dadosDto))
+    public ResponseEntity<ClinicaDadosRequest> update(@PathVariable UUID id, @Valid @RequestBody ClinicaDadosRequest dadosDto){
+        return this.clinicaService.update(id, ClinicaDadosRequest.toEntity(dadosDto))
                 .map(end ->
-                        ResponseEntity.ok(ClinicaRequest.toDto(end)))
+                        ResponseEntity.ok(ClinicaDadosRequest.toDto(end)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 
@@ -59,11 +57,11 @@ public class ClinicaResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<ClinicaRequest>> fetchAll(@PageableDefault(page = 0, size = 10)Pageable pageable){
+    public ResponseEntity<List<ClinicaResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.clinicaService.fetchAll(pageable)
                         .stream()
-                        .map(ClinicaRequest::toDto)
+                        .map(ClinicaResponse::toDto)
                         .collect(Collectors.toList())
         );
     }

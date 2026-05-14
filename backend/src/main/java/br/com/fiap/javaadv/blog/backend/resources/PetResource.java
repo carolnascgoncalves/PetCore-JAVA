@@ -7,6 +7,7 @@ import br.com.fiap.javaadv.blog.backend.services.PetService;
 import br.com.fiap.javaadv.blog.backend.services.TutorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -65,7 +66,7 @@ public class PetResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<PetResponse>> fetchAll( @PageableDefault(page = 0, size = 10) Pageable pageable){
+    public ResponseEntity<List<PetResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.petService.fetchAll(pageable)
                         .stream()
@@ -75,7 +76,7 @@ public class PetResource {
     }
 
     @GetMapping("/menu/listar")
-    public ResponseEntity<List<PetMenuResponse>> fetchMenuAll(@PageableDefault(page = 0, size = 10) Pageable pageable){
+    public ResponseEntity<List<PetMenuResponse>> fetchMenuAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.petService.fetchAll(pageable)
                         .stream()

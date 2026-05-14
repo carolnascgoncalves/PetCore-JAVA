@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.ClinicaRepository;
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.EnderecoRepository;
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.MedicoRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Endereco;
@@ -26,18 +27,28 @@ public class EnderecoServiceImp implements EnderecoService{
     }
 
     @Override
-    public Optional<Endereco> update(UUID id, Endereco endereco){
-        if(this.enderecoRepository.existsById(id)){
-            endereco.setId(id);
-            this.enderecoRepository.save(endereco);
+    public Optional<Endereco> update(UUID id, Endereco patch){
+        return enderecoRepository.findById(id)
+                .map(existing -> {
+                    if (patch.getCep() != null)
+                        existing.setCep(patch.getCep());
 
-            return Optional.of(endereco);
-        }
-        return Optional.empty();
+                    if(patch.getComplemento() != null)
+                        existing.setComplemento(patch.getComplemento());
+
+                    return enderecoRepository.save(existing);
+                });
     }
 
     @Override
     public void delete(UUID id){
+        Optional<Endereco> enderecoOP = enderecoRepository.findById(id);
+
+        Endereco endereco = enderecoOP.get();
+        if(endereco.getClinica() != null){
+            throw new RuntimeException("Não é possível deletar um endereço associado à uma clínica");
+        }
+
         enderecoRepository.deleteById(id);
     }
 

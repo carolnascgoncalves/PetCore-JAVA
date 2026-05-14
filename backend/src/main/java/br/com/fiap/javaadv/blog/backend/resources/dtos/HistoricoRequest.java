@@ -21,30 +21,18 @@ public class HistoricoRequest {
 
     private @Getter @Setter Set<UUID> idProntuarios;
 
-    private @Getter @Setter Set<UUID> idRelatorios;
-
     private @Getter @Setter UUID idPet;
 
     public static Historico toEntity(final HistoricoRequest dto) {
         return Historico.builder()
                 .data(dto.getData())
                 .status(dto.getStatus())
-                .pet(Pet.builder().id(dto.getIdPet()).build())
 
                 .prontuarios(dto.getIdProntuarios()
                         .stream()
-                        .map(id -> Prontuario.builder()
-                                .id(id)
-                                .build())
+                        .map(id -> Prontuario.builder().id(id).build())
                         .collect(Collectors.toSet()))
-
-                .relatorios(dto.getIdRelatorios()
-                        .stream()
-                        .map(id -> Relatorio.builder()
-                                .id(id)
-                                .build())
-                        .collect(Collectors.toSet())
-                )
+                .pet(Pet.builder().id(dto.getIdPet()).build())
                 .build();
     }
 
@@ -57,14 +45,7 @@ public class HistoricoRequest {
                         historico.getProntuarios()
                                 .stream()
                                 .map(prontuario -> prontuario.getId())
-                                .collect(Collectors.toSet())
-                )
-                .idRelatorios(
-                        historico.getRelatorios()
-                                .stream()
-                                .map(relatorio -> relatorio.getId())
-                                .collect(Collectors.toSet())
-                )
+                                .collect(Collectors.toSet()))
                 .idPet(historico.getPet().getId())
                 .build();
     }

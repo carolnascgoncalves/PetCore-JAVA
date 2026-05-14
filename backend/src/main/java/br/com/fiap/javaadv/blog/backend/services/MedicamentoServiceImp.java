@@ -25,14 +25,21 @@ public class MedicamentoServiceImp implements MedicamentoService{
     }
 
     @Override
-    public Optional<Medicamento> update(UUID id, Medicamento medicamento){
-        if(this.medicamentoRepository.existsById(id)){
-            medicamento.setId(id);
-            this.medicamentoRepository.save(medicamento);
+    public Optional<Medicamento> update(UUID id, Medicamento patch){
+        return medicamentoRepository.findById(id)
+                .map(existing -> {
 
-            return Optional.of(medicamento);
-        }
-        return Optional.empty();
+                    if (patch.getNome() != null)
+                        existing.setNome(patch.getNome());
+
+                    if (patch.getDosagem() != null)
+                        existing.setDosagem(patch.getDosagem());
+
+                    if (patch.getInstrucao() != null)
+                        existing.setInstrucao(patch.getInstrucao());
+
+                    return medicamentoRepository.save(existing);
+                });
     }
 
     @Override

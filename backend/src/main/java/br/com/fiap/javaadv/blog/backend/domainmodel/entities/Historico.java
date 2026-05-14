@@ -8,10 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name="historico_petcore")
@@ -42,7 +39,19 @@ public class Historico {
     private @Getter @Setter Set<Relatorio> relatorios;
 
     //prontuario(1:n)
-    @OneToMany(mappedBy = "historico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "historico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Prontuario> prontuarios;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Historico historico = (Historico) o;
+        return Objects.equals(id, historico.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

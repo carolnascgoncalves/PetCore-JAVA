@@ -11,6 +11,7 @@ import lombok.*;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.time.LocalDate;
@@ -85,4 +86,15 @@ public class Pet {
         return Period.between(nascimento, LocalDate.now()).getYears();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return Objects.equals(id, pet.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

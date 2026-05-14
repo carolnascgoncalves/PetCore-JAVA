@@ -2,14 +2,12 @@ package br.com.fiap.javaadv.blog.backend.resources;
 
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Exame;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medicamento;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.ExameRequest;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.ExameResponse;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.MedicamentoRequest;
-import br.com.fiap.javaadv.blog.backend.resources.dtos.MedicamentoResponse;
+import br.com.fiap.javaadv.blog.backend.resources.dtos.*;
 import br.com.fiap.javaadv.blog.backend.services.ExameService;
 import br.com.fiap.javaadv.blog.backend.services.MedicamentoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -42,10 +40,10 @@ public class ExameResource {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ExameRequest> update(@PathVariable UUID id, @Valid @RequestBody ExameRequest dadosDto){
-        return this.exameService.update(id, ExameRequest.toEntity(dadosDto))
-                .map(medicamento ->
-                        ResponseEntity.ok(ExameRequest.toDto(medicamento)))
+    public ResponseEntity<ExameDadosRequest> update(@PathVariable UUID id, @Valid @RequestBody ExameDadosRequest dadosDto){
+        return this.exameService.update(id, ExameDadosRequest.toEntity(dadosDto))
+                .map(exame ->
+                        ResponseEntity.ok(ExameDadosRequest.toDto(exame)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 
@@ -59,7 +57,7 @@ public class ExameResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<ExameResponse>> fetchAll(@PageableDefault(page = 0, size = 10) Pageable pageable){
+    public ResponseEntity<List<ExameResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.exameService.fetchAll(pageable)
                         .stream()

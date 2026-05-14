@@ -1,7 +1,9 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.ClinicaRepository;
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.EnderecoRepository;
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.MedicoRepository;
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.RelatorioRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Clinica;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
 import lombok.AllArgsConstructor;
@@ -19,6 +21,8 @@ import java.util.UUID;
 @Transactional(propagation = Propagation.REQUIRED)
 public class ClinicaServiceImp implements ClinicaService{
     private final ClinicaRepository clinicaRepository;
+    private final RelatorioRepository relatorioRepository;
+    private final EnderecoRepository enderecoRepository;
 
     @Override
     public Clinica create(Clinica clinica){
@@ -26,20 +30,31 @@ public class ClinicaServiceImp implements ClinicaService{
     }
 
     @Override
-    public Optional<Clinica> update(UUID id, Clinica clinica){
-        if(this.clinicaRepository.existsById(id)){
-            clinica.setId(id);
-            this.clinicaRepository.save(clinica);
+    public Optional<Clinica> update(UUID id, Clinica patch){
+        return clinicaRepository.findById(id)
+                .map(existing -> {
+                    if (patch.getNome() != null)
+                        existing.setNome(patch.getNome());
 
-            return Optional.of(clinica);
-        }
-        return Optional.empty();
+                    if(patch.getEndereco() != null)
+                        existing.setEndereco(patch.getEndereco());
+
+                    return clinicaRepository.save(existing);
+                });
     }
 
 
     @Override
     public void delete(UUID id){
-        clinicaRepository.deleteById(id);
+        Clinica cli = clinicaRepository.findById(id).orElseThrow();
+
+        cli.getRelatorios().forEach(rel -> rel.setClinicas(null));
+        relatorioRepository.saveAll(cli.getRelatorios());
+
+        cli.getEndereco().setClinica(null);
+        enderecoRepository.save(cli.getEndereco());
+
+        clinicaRepository.delete(cli);
     }
 
     @Override

@@ -7,6 +7,7 @@ import br.com.fiap.javaadv.blog.backend.services.ReceitaService;
 import br.com.fiap.javaadv.blog.backend.services.RelatorioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class ReceitaResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<ReceitaResponse>> fetchAll(@PageableDefault(page = 0, size = 10)Pageable pageable){
+    public ResponseEntity<List<ReceitaResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.receitaService.fetchAll(pageable)
                         .stream()

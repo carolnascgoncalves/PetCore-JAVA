@@ -7,6 +7,7 @@ import br.com.fiap.javaadv.blog.backend.services.MedicamentoService;
 import br.com.fiap.javaadv.blog.backend.services.ProntuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -56,7 +57,7 @@ public class MedicamentoResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<MedicamentoResponse>> fetchAll(@PageableDefault(page = 0, size = 10)Pageable pageable){
+    public ResponseEntity<List<MedicamentoResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.medicamentoService.fetchAll(pageable)
                         .stream()

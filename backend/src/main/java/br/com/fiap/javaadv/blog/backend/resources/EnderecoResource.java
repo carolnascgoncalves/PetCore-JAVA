@@ -7,6 +7,7 @@ import br.com.fiap.javaadv.blog.backend.services.EnderecoService;
 import br.com.fiap.javaadv.blog.backend.services.ExameService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -56,7 +57,7 @@ public class EnderecoResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<EnderecoResponse>> fetchAll(@PageableDefault(page = 0, size = 10)Pageable pageable){
+    public ResponseEntity<List<EnderecoResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.enderecoService.fetchAll(pageable)
                         .getContent()

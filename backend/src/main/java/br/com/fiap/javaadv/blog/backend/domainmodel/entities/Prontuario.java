@@ -8,6 +8,7 @@ import lombok.*;
 
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -53,4 +54,16 @@ public class Prontuario {
     @JoinColumn(name = "ID_hist_(PK)")
     private @Getter @Setter Historico historico;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Prontuario that = (Prontuario) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

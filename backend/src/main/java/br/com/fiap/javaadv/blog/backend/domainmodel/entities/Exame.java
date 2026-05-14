@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -47,4 +48,15 @@ public class Exame {
     private @Getter @Setter Prontuario prontuario;
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Exame exame = (Exame) o;
+        return Objects.equals(id, exame.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

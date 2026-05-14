@@ -7,6 +7,7 @@ import br.com.fiap.javaadv.blog.backend.services.ProntuarioService;
 import br.com.fiap.javaadv.blog.backend.services.TutorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class ProntuarioResource {
 
     @PostMapping
     public ResponseEntity<ProntuarioRequest> create(@Valid @RequestBody ProntuarioRequest prontuarioRequest ){
-        Prontuario prontuario = prontuarioRequest.toEntity(prontuarioRequest);
+        Prontuario prontuario = ProntuarioRequest.toEntity(prontuarioRequest);
         Prontuario savedProntuario = this.prontuarioService.create(prontuario);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -35,7 +36,7 @@ public class ProntuarioResource {
                 .toUri();
 
         return ResponseEntity.created(location)
-                .body(prontuarioRequest.toDto(savedProntuario));
+                .body(ProntuarioRequest.toDto(savedProntuario));
     }
 
     @PatchMapping("/{id}")
@@ -57,7 +58,7 @@ public class ProntuarioResource {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<ProntuarioResponse>> fetchAll(@PageableDefault(page = 0, size = 10) Pageable pageable){
+    public ResponseEntity<List<ProntuarioResponse>> fetchAll(@ParameterObject @PageableDefault(page = 0, size = 10)Pageable pageable){
         return ResponseEntity.ok(
                 this.prontuarioService.fetchAll(pageable)
                         .stream()

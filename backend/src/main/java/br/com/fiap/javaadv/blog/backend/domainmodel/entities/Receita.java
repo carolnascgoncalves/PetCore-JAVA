@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -50,4 +51,16 @@ public class Receita {
             inverseJoinColumns = @JoinColumn(name="ID_medic_(FK)")
     )
     private @Getter @Setter Set<Medicamento> medicamentos;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Receita receita = (Receita) o;
+        return Objects.equals(id, receita.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -74,4 +75,16 @@ public class Medico {
 
     @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Receita> receitas;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Medico medico = (Medico) o;
+        return Objects.equals(id, medico.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
