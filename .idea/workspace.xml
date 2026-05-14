@@ -27,6 +27,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/carol/OneDrive/Área de Trabalho/FIAP/Challenge - Clyvo/PetCore-JAVA",
     "vue.rearranger.settings.migration": "true"
   }
@@ -41,5 +42,8 @@
       <workItem from="1778356143070" duration="27000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
