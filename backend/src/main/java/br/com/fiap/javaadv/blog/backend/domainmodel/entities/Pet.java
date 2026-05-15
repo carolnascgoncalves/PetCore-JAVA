@@ -25,7 +25,6 @@ import java.time.Period;
 @Builder
 public class Pet {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
@@ -76,9 +75,8 @@ public class Pet {
 
     //historico(1:1)
     @OneToOne
-    @JoinColumn(name = "ID_hist_(PK)")
+    @JoinColumn(name = "ID_hist_(FK)")
     private @Getter @Setter Historico historico;
-
 
 
     public int calcularIdade() {
@@ -96,5 +94,12 @@ public class Pet {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @PrePersist
+    public void gerarId() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
     }
 }

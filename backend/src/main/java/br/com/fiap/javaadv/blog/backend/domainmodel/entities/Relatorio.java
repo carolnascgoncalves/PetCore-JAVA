@@ -17,7 +17,6 @@ import java.util.UUID;
 @Builder
 public class Relatorio {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private @Getter @Setter UUID id;
 
     @Size(max = 500, message = "A observacao deve ter no maximo 500 caracteres")
@@ -50,5 +49,12 @@ public class Relatorio {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @PrePersist
+    public void gerarId() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
     }
 }

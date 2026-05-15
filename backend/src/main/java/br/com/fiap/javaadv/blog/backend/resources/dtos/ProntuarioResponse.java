@@ -1,6 +1,9 @@
 package br.com.fiap.javaadv.blog.backend.resources.dtos;
 
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Exame;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medicamento;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Prontuario;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Receita;
 import lombok.*;
 
 import java.sql.Date;
@@ -23,9 +26,9 @@ public class ProntuarioResponse {
 
     private @Getter @Setter String nomeMedico;
 
-    private @Getter @Setter Set<ExameResponse> exames;
+    private @Getter @Setter Set<UUID> idExames;
 
-    private @Getter @Setter Set<ReceitaResponse> receitas;
+    private @Getter @Setter Set<UUID> idReceitas;
 
     private @Getter @Setter UUID idHistorico;
 
@@ -39,16 +42,16 @@ public class ProntuarioResponse {
                 .idMedico(prontuario.getMedico() != null ? prontuario.getMedico().getId() : null)
                 .idHistorico(prontuario.getHistorico() != null ? prontuario.getHistorico().getId() : null)
                 .nomeMedico(prontuario.getMedico() != null ? prontuario.getMedico().getNome() : null)
-                .exames(
+                .idExames(
                         prontuario.getExames()
                                 .stream()
-                                .map(ExameResponse::toDto)
+                                .map(Exame::getId)
                                 .collect(Collectors.toSet())
                 )
-                .receitas(
+                .idReceitas(
                         prontuario.getReceitas()
                                 .stream()
-                                .map(ReceitaResponse::toDto)
+                                .map(Receita::getId)
                                 .collect(Collectors.toSet())
                 )
                 .build();

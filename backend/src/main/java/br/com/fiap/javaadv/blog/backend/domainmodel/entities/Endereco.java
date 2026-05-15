@@ -16,7 +16,6 @@ import java.util.UUID;
 @Builder
 public class Endereco {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private @Getter @Setter UUID id;
 
     @NotBlank(message = "O cep é obrigatorio")
@@ -43,5 +42,12 @@ public class Endereco {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @PrePersist
+    public void gerarId() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
     }
 }

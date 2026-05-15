@@ -1,5 +1,6 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.ClinicaRepository;
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.RelatorioRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Relatorio;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Transactional( propagation = Propagation.REQUIRED)
 public class RelatorioServiceImp implements RelatorioService{
     private final RelatorioRepository relatorioRepository;
+    private final ClinicaRepository clinicaRepository;
 
     @Override
     public Relatorio create(Relatorio relatorio) {
@@ -55,7 +57,12 @@ public class RelatorioServiceImp implements RelatorioService{
 
     @Override
     public void delete(UUID id) {
-        this.relatorioRepository.deleteById(id);
+        Relatorio rel = relatorioRepository.findById(id).orElseThrow();
+        rel.getClinicas().forEach(cli -> cli.getRelatorios().remove(rel));
+        clinicaRepository.saveAll(rel.getClinicas());
+        rel.setClinicas(null);
+
+        relatorioRepository.delete(rel);
     }
 
     public boolean existsById(UUID id){

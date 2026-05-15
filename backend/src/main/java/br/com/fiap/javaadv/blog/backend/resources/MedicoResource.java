@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -77,7 +78,6 @@ public class MedicoResource {
     public ResponseEntity<MedicoResponse> fetchByEmail(@RequestBody UserLoginRequest loginDto) {
         return medicoService.fetchByEmail(loginDto.getEmail(), loginDto.getSenha())
                 .map(med -> ResponseEntity.ok(MedicoResponse.toDto(med)))
-                .orElseGet(() -> ResponseEntity.notFound()
-                        .build());
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 }

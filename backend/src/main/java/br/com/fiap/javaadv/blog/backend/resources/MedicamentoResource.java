@@ -40,10 +40,10 @@ public class MedicamentoResource {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<MedicamentoRequest> update(@PathVariable UUID id, @Valid @RequestBody MedicamentoRequest dadosDto){
-        return this.medicamentoService.update(id, MedicamentoRequest.toEntity(dadosDto))
-                .map(medicamento ->
-                        ResponseEntity.ok(MedicamentoRequest.toDto(medicamento)))
+    public ResponseEntity<MedicamentoDadosRequest> update(@PathVariable UUID id, @Valid @RequestBody MedicamentoDadosRequest dadosDto){
+        return this.medicamentoService.update(id, MedicamentoDadosRequest.toEntity(dadosDto))
+                .map(tutor ->
+                        ResponseEntity.ok(MedicamentoDadosRequest.toDto(tutor)))
                 .orElseGet(() -> ResponseEntity.notFound().build() );
     }
 

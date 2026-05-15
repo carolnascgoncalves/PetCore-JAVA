@@ -8,11 +8,13 @@ import lombok.RequiredArgsConstructor;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -73,11 +75,11 @@ public class TutorResource {
                 .orElseGet( () -> ResponseEntity.notFound().build() );
     }
 
+
     @PostMapping("/login")
     public ResponseEntity<TutorResponse> fetchByEmail(@RequestBody UserLoginRequest loginDto) {
         return tutorService.fetchByEmail(loginDto.getEmail(), loginDto.getSenha())
                 .map(tutor -> ResponseEntity.ok(TutorResponse.toDto(tutor)))
-                .orElseGet(() -> ResponseEntity.notFound()
-                        .build());
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 }

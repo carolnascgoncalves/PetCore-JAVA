@@ -1,6 +1,7 @@
 package br.com.fiap.javaadv.blog.backend.services;
 
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.MedicamentoRepository;
+import br.com.fiap.javaadv.blog.backend.datasource.repositories.ReceitaRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medicamento;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Transactional( propagation = Propagation.REQUIRED)
 public class MedicamentoServiceImp implements MedicamentoService{
     private final MedicamentoRepository medicamentoRepository;
+    private final ReceitaRepository receitaRepository;
 
     @Override
     public Medicamento create(Medicamento medicamento){
@@ -28,10 +30,6 @@ public class MedicamentoServiceImp implements MedicamentoService{
     public Optional<Medicamento> update(UUID id, Medicamento patch){
         return medicamentoRepository.findById(id)
                 .map(existing -> {
-
-                    if (patch.getNome() != null)
-                        existing.setNome(patch.getNome());
-
                     if (patch.getDosagem() != null)
                         existing.setDosagem(patch.getDosagem());
 
@@ -44,7 +42,12 @@ public class MedicamentoServiceImp implements MedicamentoService{
 
     @Override
     public void delete(UUID id){
-        medicamentoRepository.deleteById(id);
+        Medicamento medic = medicamentoRepository.findById(id).orElseThrow();
+
+        medic.getReceitas().forEach(rec -> {rec.getMedicamentos().remove(medic);});
+        receitaRepository.saveAll(medic.getReceitas());
+
+        medicamentoRepository.delete(medic);
     }
 
     @Override

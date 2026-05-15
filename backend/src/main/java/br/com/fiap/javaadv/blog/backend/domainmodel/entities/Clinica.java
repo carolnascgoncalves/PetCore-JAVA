@@ -17,7 +17,6 @@ import java.util.UUID;
 @Builder
 public class Clinica {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private @Getter @Setter UUID id;
 
     @NotBlank(message = "O cnpj é obrigatorio")
@@ -43,7 +42,7 @@ public class Clinica {
 
     //endereco(1:1)
     @OneToOne
-    @JoinColumn( name = "ID_end_(FK)")
+    @JoinColumn(name = "ID_end_(FK)", unique = true)
     private @Getter @Setter Endereco endereco;
 
     @Override
@@ -56,5 +55,12 @@ public class Clinica {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @PrePersist
+    public void gerarId() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
     }
 }

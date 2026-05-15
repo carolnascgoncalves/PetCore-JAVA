@@ -70,7 +70,7 @@ public class ProntuarioResource {
     @GetMapping("/{id}")
     public ResponseEntity<ProntuarioResponse> fetchById( @PathVariable UUID id ){
         return this.prontuarioService.fetchById(id)
-                .map(prontuario -> ResponseEntity.ok(ProntuarioResponse.toDto(prontuario)))
+                .map(pront -> ResponseEntity.ok(ProntuarioResponse.toDto(pront)))
                 .orElseGet( () -> ResponseEntity.notFound().build() );
     }
 }

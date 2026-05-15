@@ -33,7 +33,6 @@ public class PetRequest {
 
     private @Getter @Setter String pelagem;
 
-    private @Getter @Setter UUID idHistorico;
 
     public static Pet toEntity(final PetRequest dto){
         return Pet.builder()
@@ -46,7 +45,6 @@ public class PetRequest {
                 .especie(dto.getEspecie())
                 .raca(dto.getRaca())
                 .pelagem(dto.getPelagem())
-                .historico(dto.getIdHistorico() != null ? Historico.builder().id(dto.getIdHistorico()).build() : null)
                 .build();
     }
 
@@ -62,7 +60,6 @@ public class PetRequest {
                 .especie(pet.getEspecie())
                 .raca(pet.getRaca())
                 .pelagem(pet.getPelagem())
-                .idHistorico(pet.getHistorico().getId())
                 .build();
     }
 

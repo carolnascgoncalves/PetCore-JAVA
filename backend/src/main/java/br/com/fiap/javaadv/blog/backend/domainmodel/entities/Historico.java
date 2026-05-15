@@ -18,7 +18,6 @@ import java.util.*;
 @Builder
 public class Historico {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private @Getter @Setter UUID id;
 
     @NotNull(message = "A data é obrigatória")
@@ -53,5 +52,12 @@ public class Historico {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @PrePersist
+    public void gerarId() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
     }
 }

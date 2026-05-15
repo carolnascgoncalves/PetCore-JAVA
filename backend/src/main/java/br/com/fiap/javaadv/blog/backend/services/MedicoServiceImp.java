@@ -52,21 +52,21 @@ public class MedicoServiceImp implements MedicoService{
 
     @Override
     public void delete(UUID id) {
-        Medico medico = medicoRepository.findById(id).orElseThrow();
+        Medico med = medicoRepository.findById(id).orElseThrow();
 
-        medico.getRelatorios().forEach(rel -> rel.setMedico(null));
-        relatorioRepository.saveAll(medico.getRelatorios());
+        med.getProntuarios().forEach(pront -> pront.setMedico(null));
+        prontuarioRepository.saveAll(med.getProntuarios());
 
-        medico.getProntuarios().forEach(pront -> pront.setMedico(null));
-        prontuarioRepository.saveAll(medico.getProntuarios());
+        med.getExames().forEach(ex -> ex.setMedico(null));
+        exameRepository.saveAll(med.getExames());
 
-        medico.getExames().forEach(exame -> exame.setMedico(null));
-        exameRepository.saveAll(medico.getExames());
+        med.getReceitas().forEach(rec -> rec.setMedico(null));
+        receitaRepository.saveAll(med.getReceitas());
 
-        medico.getReceitas().forEach(rec -> rec.setMedico(null));
-        receitaRepository.saveAll(medico.getReceitas());
+        med.getRelatorios().forEach(rel -> rel.setMedico(null));
+        relatorioRepository.saveAll(med.getRelatorios());
 
-        medicoRepository.delete(medico);
+        medicoRepository.delete(med);
     }
 
     @Override

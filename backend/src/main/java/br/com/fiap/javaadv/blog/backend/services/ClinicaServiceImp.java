@@ -5,6 +5,7 @@ import br.com.fiap.javaadv.blog.backend.datasource.repositories.EnderecoReposito
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.MedicoRepository;
 import br.com.fiap.javaadv.blog.backend.datasource.repositories.RelatorioRepository;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Clinica;
+import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Endereco;
 import br.com.fiap.javaadv.blog.backend.domainmodel.entities.Medico;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -33,11 +34,23 @@ public class ClinicaServiceImp implements ClinicaService{
     public Optional<Clinica> update(UUID id, Clinica patch){
         return clinicaRepository.findById(id)
                 .map(existing -> {
-                    if (patch.getNome() != null)
-                        existing.setNome(patch.getNome());
 
-                    if(patch.getEndereco() != null)
-                        existing.setEndereco(patch.getEndereco());
+                    if (patch.getNome() != null) {
+                        existing.setNome(patch.getNome());
+                    }
+
+                    if (patch.getEndereco() != null) {
+
+                        UUID enderecoId = patch.getEndereco().getId();
+
+                        Endereco endereco = enderecoRepository.findById(enderecoId).orElseThrow(() -> new RuntimeException("Endereço não encontrado"));
+
+                        if (endereco.getClinica() != null && !endereco.getClinica().getId().equals(existing.getId())) {
+                            throw new RuntimeException("Esse endereço já está vinculado a outra clínica");
+                        }
+
+                        existing.setEndereco(endereco);
+                    }
 
                     return clinicaRepository.save(existing);
                 });

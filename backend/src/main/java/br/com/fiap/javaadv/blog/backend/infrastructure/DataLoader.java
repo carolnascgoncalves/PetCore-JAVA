@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.sql.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @Configuration
 public class DataLoader {
@@ -32,6 +33,7 @@ public class DataLoader {
 
             // ================= TUTORES =================
             Tutor tutor1 = tutorRep.save(Tutor.builder()
+                    .id(UUID.fromString("90c87b51-422c-4a4e-83ca-eb73fdc1932a"))
                     .nome("Sandra Nascimento")
                     .dataNascimento(Date.valueOf("1968-11-14"))
                     .telefone("11992746375")
@@ -41,6 +43,7 @@ public class DataLoader {
                     .build());
 
             Tutor tutor2 = tutorRep.save(Tutor.builder()
+                    .id(UUID.fromString("978c415d-7c8b-4b37-af9a-d54fcb1bda46"))
                     .nome("Noelle Almeida")
                     .dataNascimento(Date.valueOf("1988-05-18"))
                     .telefone("11992933212")
@@ -50,6 +53,7 @@ public class DataLoader {
                     .build());
 
             Tutor tutor3 = tutorRep.save(Tutor.builder()
+                    .id(UUID.fromString("6cc9935e-874f-4569-82b2-1c58baf91e79"))
                     .nome("Lucia Lurdes")
                     .dataNascimento(Date.valueOf("1993-04-23"))
                     .telefone("11993857635")
@@ -60,32 +64,38 @@ public class DataLoader {
 
             // ================= HISTÓRICO =================
             Historico hist1 = historicoRep.save(Historico.builder()
+                    .id(UUID.fromString("0b5920dc-c674-4df9-a1b2-d94acb659443"))
                     .data(Date.valueOf("2026-05-03"))
                     .status(StatusEnum.INATIVO)
                     .build());
 
             Historico hist2 = historicoRep.save(Historico.builder()
+                    .id(UUID.fromString("bac1afb7-5d9d-4f83-8017-b4e29c8d66f9"))
                     .data(Date.valueOf("2025-07-25"))
                     .status(StatusEnum.ATIVO)
                     .build());
 
             Historico hist3 = historicoRep.save(Historico.builder()
+                    .id(UUID.fromString("296607a4-f07a-4018-998b-69367cb01fa5"))
                     .data(Date.valueOf("2026-02-09"))
                     .status(StatusEnum.ATIVO)
                     .build());
 
             Historico hist4 = historicoRep.save(Historico.builder()
+                    .id(UUID.fromString("e8d25a08-94ff-43d0-9a54-da279a868e8f"))
                     .data(Date.valueOf("2026-05-19"))
                     .status(StatusEnum.ATIVO)
                     .build());
 
             Historico hist5 = historicoRep.save(Historico.builder()
+                    .id(UUID.fromString("64c6b86a-17d6-4693-912c-331d83ae1c06"))
                     .data(Date.valueOf("2026-03-01"))
                     .status(StatusEnum.ATIVO)
                     .build());
 
             // ================= MÉDICOS =================
             Medico med1 = medicoRep.save(Medico.builder()
+                    .id(UUID.fromString("47d44b69-bfa6-4c9e-a01a-bb5698596797"))
                     .nome("Renato Gonçalves")
                     .dataNascimento(Date.valueOf("1990-09-04"))
                     .telefone("11857284924")
@@ -96,6 +106,7 @@ public class DataLoader {
                     .build());
 
             Medico med2 = medicoRep.save(Medico.builder()
+                    .id(UUID.fromString("765ac59c-5f81-4943-8986-7e048b15e474"))
                     .nome("Julio Juniro")
                     .dataNascimento(Date.valueOf("1993-04-23"))
                     .telefone("11883746219")
@@ -106,6 +117,7 @@ public class DataLoader {
                     .build());
 
             Medico med3 = medicoRep.save(Medico.builder()
+                    .id(UUID.fromString("9c02a90a-69d6-4fc1-9f01-1588ae05e2ca"))
                     .nome("Amanhda Rocha")
                     .dataNascimento(Date.valueOf("1993-04-23"))
                     .telefone("11983647515")
@@ -117,6 +129,7 @@ public class DataLoader {
 
             // ================= PETS =================
             Pet pet1 = petRep.save(Pet.builder()
+                    .id(UUID.fromString("1405e532-7085-4a07-80e8-5d36e4d35c44"))
                     .nome("Olimpio")
                     .especie("Cachorro")
                     .raca("Yorkshire")
@@ -130,6 +143,7 @@ public class DataLoader {
                     .build());
 
             Pet pet2 = petRep.save(Pet.builder()
+                    .id(UUID.fromString("c76e70e4-e5e4-457d-9a10-7d6d2f8e0488"))
                     .nome("Dori")
                     .especie("Peixe")
                     .raca("Beta")
@@ -143,6 +157,7 @@ public class DataLoader {
                     .build());
 
             Pet pet3 = petRep.save(Pet.builder()
+                    .id(UUID.fromString("2d4a93eb-0434-4671-b4ce-9f3fc24316d3"))
                     .nome("Thor")
                     .especie("Cachorro")
                     .raca("Golden retriever")
@@ -156,6 +171,7 @@ public class DataLoader {
                     .build());
 
             Pet pet4 = petRep.save(Pet.builder()
+                    .id(UUID.fromString("c057e4be-03d1-4c84-982f-e43aa4c3cace"))
                     .nome("Lidia")
                     .especie("Gato")
                     .raca("Malhado")
@@ -169,6 +185,7 @@ public class DataLoader {
                     .build());
 
             Pet pet5 = petRep.save(Pet.builder()
+                    .id(UUID.fromString("ce5a6129-1eed-45fa-b237-4760f623dadf"))
                     .nome("Maria")
                     .especie("Cachorro")
                     .raca("Pug")
@@ -183,6 +200,7 @@ public class DataLoader {
 
             // ================= EXAMES =================
             Exame ex1 = exameRep.save(Exame.builder()
+                    .id(UUID.fromString("ad257493-f6d3-4dc4-be4a-cc3c25fba540"))
                     .nome("Teste de Glicemia")
                     .data(Date.valueOf("2025-01-07"))
                     .tipo("Exame endócrino")
@@ -190,6 +208,7 @@ public class DataLoader {
                     .build());
 
             Exame ex2 = exameRep.save(Exame.builder()
+                    .id(UUID.fromString("6f36c712-d4cb-4648-97f3-eac7866a41e4"))
                     .nome("Hemograma completo")
                     .data(Date.valueOf("2025-05-04"))
                     .tipo("Exame de sangue")
@@ -197,6 +216,7 @@ public class DataLoader {
                     .build());
 
             Exame ex3 = exameRep.save(Exame.builder()
+                    .id(UUID.fromString("6135688d-b25e-40b7-90f6-44dc15023a77"))
                     .nome("Exame Raio-x")
                     .data(Date.valueOf("2025-06-02"))
                     .tipo("Exame de imagem")
@@ -204,6 +224,7 @@ public class DataLoader {
                     .build());
 
             Exame ex4 = exameRep.save(Exame.builder()
+                    .id(UUID.fromString("2ac99355-33fd-4080-bb5d-5220cdad1f8e"))
                     .nome("Teste de Glicemia")
                     .data(Date.valueOf("2025-03-17"))
                     .tipo("Exame endócrino")
@@ -211,6 +232,7 @@ public class DataLoader {
                     .build());
 
             Exame ex5 = exameRep.save(Exame.builder()
+                    .id(UUID.fromString("abd73853-85dd-43b8-934d-febe4cf1f661"))
                     .nome("Exame de urina")
                     .data(Date.valueOf("2025-04-27"))
                     .tipo("Exame parasitológico")
@@ -218,6 +240,7 @@ public class DataLoader {
                     .build());
 
             Exame ex6 = exameRep.save(Exame.builder()
+                    .id(UUID.fromString("b9080566-5530-4eb2-a0d9-d9650fbdfa50"))
                     .nome("Hemograma completo")
                     .data(Date.valueOf("2025-09-18"))
                     .tipo("Exame de sangue")
@@ -226,36 +249,42 @@ public class DataLoader {
 
             // ================= RECEITAS =================
             Receita rec1 = receitaRep.save(Receita.builder()
+                    .id(UUID.fromString("0efc7b5b-1f83-476e-9fc1-7be4360ab9c0"))
                     .nome("Receita hormonal")
                     .validade(Date.valueOf("2026-02-04"))
                     .medico(med2)
                     .build());
 
             Receita rec2 = receitaRep.save(Receita.builder()
+                    .id(UUID.fromString("dc656926-011d-435c-a33c-f71df7b56ecc"))
                     .nome("Receita vermes")
                     .validade(Date.valueOf("2026-01-08"))
                     .medico(med1)
                     .build());
 
             Receita rec3 = receitaRep.save(Receita.builder()
+                    .id(UUID.fromString("4a277997-e62f-4683-adc2-cde55f27dc64"))
                     .nome("Receita gripe")
                     .validade(Date.valueOf("2026-01-02"))
                     .medico(med2)
                     .build());
 
             Receita rec4 = receitaRep.save(Receita.builder()
+                    .id(UUID.fromString("918d90f2-91e3-4124-8986-5fbbb143574a"))
                     .nome("Receita diabetes")
                     .validade(Date.valueOf("2026-04-14"))
                     .medico(med3)
                     .build());
 
             Receita rec5 = receitaRep.save(Receita.builder()
+                    .id(UUID.fromString("fe491251-62e7-47a4-a576-f98412fd7a53"))
                     .nome("Receita hormonal 2")
                     .validade(Date.valueOf("2026-03-24"))
                     .medico(med1)
                     .build());
 
             Receita rec6 = receitaRep.save(Receita.builder()
+                    .id(UUID.fromString("2162c111-528a-4700-a0e5-e7a3a674c094"))
                     .nome("Receita controle")
                     .validade(Date.valueOf("2026-01-25"))
                     .medico(med3)
@@ -263,6 +292,7 @@ public class DataLoader {
 
             // ================= MEDICAMENTOS =================
             Medicamento m1 = medicamentoRep.save(Medicamento.builder()
+                    .id(UUID.fromString("9be6cf8f-9e06-4dea-b767-6de2c552536d"))
                     .nome("Beneflora")
                     .dosagem("14mg")
                     .instrucao("1 manhã")
@@ -270,6 +300,7 @@ public class DataLoader {
                     .build());
 
             Medicamento m2 = medicamentoRep.save(Medicamento.builder()
+                    .id(UUID.fromString("a923cf7e-a739-4a81-945b-2806e18c1cac"))
                     .nome("Levotiroxina")
                     .dosagem("25mg")
                     .instrucao("1 manhã")
@@ -277,6 +308,7 @@ public class DataLoader {
                     .build());
 
             Medicamento m3 = medicamentoRep.save(Medicamento.builder()
+                    .id(UUID.fromString("27a68679-4675-4808-9c29-c2222579a64a"))
                     .nome("Prediderm")
                     .dosagem("25mg")
                     .instrucao("manhã/noite")
@@ -284,6 +316,7 @@ public class DataLoader {
                     .build());
 
             Medicamento m4 = medicamentoRep.save(Medicamento.builder()
+                    .id(UUID.fromString("2001e84d-7aab-4718-8c46-38101d4f1823"))
                     .nome("Vermífugo")
                     .dosagem("500mg")
                     .instrucao("1 manhã")
@@ -291,6 +324,7 @@ public class DataLoader {
                     .build());
 
             Medicamento m5 = medicamentoRep.save(Medicamento.builder()
+                    .id(UUID.fromString("4e19ed2a-bc24-4436-bda4-19a105e23fc4"))
                     .nome("Meloxicam")
                     .dosagem("2mg")
                     .instrucao("após almoço")
@@ -298,62 +332,71 @@ public class DataLoader {
                     .build());
 
             Medicamento m6 = medicamentoRep.save(Medicamento.builder()
+                    .id(UUID.fromString("c4558479-8f35-4fa2-b479-fe3a12e90668"))
                     .nome("Omeprazol")
                     .dosagem("20mg")
                     .instrucao("jejum")
                     .receitas(Set.of(rec4, rec6, rec2))
                     .build());
 
-
             // ================= RELATÓRIOS =================
             Relatorio r1 = relatorioRep.save(Relatorio.builder()
+                    .id(UUID.fromString("3fa6e8fb-9b5e-48d8-b079-9eb40139766a"))
                     .observacao("Paciente apresentou alteração hormonal e iniciou acompanhamento clínico.")
                     .historico(hist1)
                     .medico(med1)
                     .build());
 
             Relatorio r2 = relatorioRep.save(Relatorio.builder()
+                    .id(UUID.fromString("f2e4444e-3735-4d1a-b4a2-91622a839c29"))
                     .observacao("Paciente apresentou melhora significativa após tratamento de hipotermia.")
                     .historico(hist2)
                     .medico(med3)
                     .build());
 
             Relatorio r3 = relatorioRep.save(Relatorio.builder()
+                    .id(UUID.fromString("5b28f091-6606-4538-998b-046c48270bcf"))
                     .observacao("Paciente apresentou episódios de febre e fadiga durante a consulta.")
                     .historico(hist3)
                     .medico(med3)
                     .build());
 
             Relatorio r4 = relatorioRep.save(Relatorio.builder()
+                    .id(UUID.fromString("eb023a8b-3058-4fe0-abb3-f544a563d8a3"))
                     .observacao("Suspeita clínica de diabetes. Solicitados exames complementares.")
                     .historico(hist4)
                     .medico(med1)
                     .build());
 
             Relatorio r5 = relatorioRep.save(Relatorio.builder()
+                    .id(UUID.fromString("d5752b1d-105c-4829-a07b-0d27c4c421ae"))
                     .observacao("Paciente segue em acompanhamento hormonal com resposta positiva ao tratamento.")
                     .historico(hist5)
                     .medico(med1)
                     .build());
 
-            // ================= ENDEREÇO =================
+// ================= ENDEREÇO =================
             Endereco end1 = enderecoRep.save(Endereco.builder()
+                    .id(UUID.fromString("174bcf8c-b2ce-496c-bc35-710813a65836"))
                     .cep("01001000")
                     .complemento("Apto 14")
                     .build());
 
             Endereco end2 = enderecoRep.save(Endereco.builder()
+                    .id(UUID.fromString("e6052b8b-db26-41ea-a449-59b1e39984b2"))
                     .cep("05999999")
                     .complemento("Casa 2")
                     .build());
 
             Endereco end3 = enderecoRep.save(Endereco.builder()
+                    .id(UUID.fromString("6c1d01c1-47b5-46ab-a8bb-0748932fbbd5"))
                     .cep("08499999")
                     .complemento("Centro")
                     .build());
 
-            // ================= CLÍNICAS =================
+// ================= CLÍNICAS =================
             Clinica cli1 = clinicaRep.save(Clinica.builder()
+                    .id(UUID.fromString("7d4cc917-cc9f-45b9-95ab-fe195014e898"))
                     .cnpj("49582746381934")
                     .nome("Clinica Patas")
                     .endereco(end1)
@@ -361,6 +404,7 @@ public class DataLoader {
                     .build());
 
             Clinica cli2 = clinicaRep.save(Clinica.builder()
+                    .id(UUID.fromString("f0bc3b21-0f17-4b02-9199-e7c02068e8fa"))
                     .cnpj("34897297593745")
                     .nome("Clinica ABV")
                     .endereco(end2)
@@ -368,14 +412,16 @@ public class DataLoader {
                     .build());
 
             Clinica cli3 = clinicaRep.save(Clinica.builder()
+                    .id(UUID.fromString("dd68fcd3-61f0-423a-932b-360574deb813"))
                     .cnpj("91840725034884")
                     .nome("Clinica PetPte")
                     .endereco(end3)
                     .relatorios(Set.of(r4, r5))
                     .build());
 
-            // ================= PRONTUARIOS =================
+// ================= PRONTUARIOS =================
             Prontuario pront1 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("20407246-c6c1-476c-b567-0f65cb685172"))
                     .data(Date.valueOf("2026-05-08"))
                     .descricao("Paciente apresentou alteração hormonal. Tratamento iniciado.")
                     .medico(med1)
@@ -385,6 +431,7 @@ public class DataLoader {
                     .build());
 
             Prontuario pront2 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("5d21e3e7-c4aa-486f-b271-0f1a1c98e5ac"))
                     .data(Date.valueOf("2025-01-07"))
                     .descricao("Paciente apresentou melhora do tratamento de hipotermia.")
                     .medico(med2)
@@ -394,6 +441,7 @@ public class DataLoader {
                     .build());
 
             Prontuario pront3 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("53fe112e-9843-46c1-8eac-32c946901873"))
                     .data(Date.valueOf("2025-11-20"))
                     .descricao("Paciente apresentou febre alta e fadiga. Tratamento iniciado.")
                     .medico(med3)
@@ -403,6 +451,7 @@ public class DataLoader {
                     .build());
 
             Prontuario pront4 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("1d3846d0-ef4e-42ae-bcd9-a10e54a47b3a"))
                     .data(Date.valueOf("2026-02-13"))
                     .descricao("Paciente apresentou sintomas de diabetes. Tratamento iniciado.")
                     .medico(med2)
@@ -412,6 +461,7 @@ public class DataLoader {
                     .build());
 
             Prontuario pront5 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("f56aad37-ebfb-47ff-8b90-07249d995ebb"))
                     .data(Date.valueOf("2026-03-09"))
                     .descricao("Paciente apresentou alteração hormonal. Necessário controle contínuo.")
                     .medico(med2)
@@ -421,6 +471,7 @@ public class DataLoader {
                     .build());
 
             Prontuario pront6 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("5104d45e-052b-411d-a340-ac8968d63a8f"))
                     .data(Date.valueOf("2026-05-02"))
                     .descricao("Paciente apresentou sintomas da doença do carrapato. Tratamento iniciado.")
                     .medico(med1)
@@ -430,6 +481,7 @@ public class DataLoader {
                     .build());
 
             Prontuario pront7 = prontuarioRep.save(Prontuario.builder()
+                    .id(UUID.fromString("d2a6b3a3-6927-480a-a39f-035adf6ab02d"))
                     .data(Date.valueOf("2026-04-22"))
                     .descricao("Paciente apresentou melhora no tratamento da diarreia.")
                     .medico(med3)
@@ -437,7 +489,6 @@ public class DataLoader {
                     .receitas(Set.of())
                     .historico(hist5)
                     .build());
-
             // ================= RELACIONAMENTOS (DEPOIS DO SAVE) =================
 
             tutor1.setPets(Set.of(pet1));

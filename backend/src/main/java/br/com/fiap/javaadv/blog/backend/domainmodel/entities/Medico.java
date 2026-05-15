@@ -21,7 +21,6 @@ import java.util.UUID;
 @Builder
 public class Medico {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private @Getter @Setter UUID id;
 
     @NotBlank(message= "O nome é obrigatorio")
@@ -67,7 +66,7 @@ public class Medico {
     @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Relatorio> relatorios;
 
-    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
     private @Getter @Setter Set<Prontuario> prontuarios;
 
     @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
@@ -86,5 +85,12 @@ public class Medico {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @PrePersist
+    public void gerarId() {
+        if (id == null) {
+            id = UUID.randomUUID();
+        }
     }
 }

@@ -34,6 +34,8 @@ public class PetResponse {
 
     private @Getter @Setter String pelagem;
 
+    private @Getter @Setter UUID idHistorico;
+
     public static PetResponse toDto(final Pet pet) {
 
         return PetResponse.builder()
@@ -48,6 +50,7 @@ public class PetResponse {
                 .especie(pet.getEspecie())
                 .raca(pet.getRaca())
                 .pelagem(pet.getPelagem())
+                .idHistorico(pet.getHistorico() != null ? pet.getHistorico().getId() : null)
                 .build();
     }
 
