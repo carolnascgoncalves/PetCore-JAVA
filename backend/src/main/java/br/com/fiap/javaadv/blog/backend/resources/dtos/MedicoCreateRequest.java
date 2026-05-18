@@ -25,7 +25,6 @@ public class MedicoCreateRequest {
 
     private @Getter @Setter String especialidade;
 
-    private @Getter @Setter String urlImg;
 
     public static Medico toEntity(final MedicoCreateRequest dto) {
 
@@ -37,7 +36,6 @@ public class MedicoCreateRequest {
                 .sexo(dto.getSexo())
                 .senha(dto.getSenha())
                 .especialidade(dto.getEspecialidade())
-                .urlImg(dto.getUrlImg())
                 .build();
     }
 
@@ -50,7 +48,6 @@ public class MedicoCreateRequest {
                 .sexo(medico.getSexo())
                 .senha(medico.getSenha())
                 .especialidade(medico.getEspecialidade())
-                .urlImg(medico.getUrlImg())
                 .build();
     }
 }

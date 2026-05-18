@@ -40,7 +40,7 @@ public class Clinica {
     )
     private @Getter @Setter Set<Relatorio> relatorios;
 
-    //endereco(1:1)
+    //clinica -> endereco(1:1)
     @OneToOne
     @JoinColumn(name = "ID_end_(FK)", unique = true)
     private @Getter @Setter Endereco endereco;

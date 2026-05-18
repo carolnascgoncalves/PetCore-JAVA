@@ -28,7 +28,7 @@ public class Endereco {
     private @Getter @Setter String complemento;
 
 
-    //Relacionamentos
+    //endereço -> clinica(1:1)
     @OneToOne( mappedBy = "endereco")
     private @Getter @Setter Clinica clinica;
 
