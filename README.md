@@ -227,350 +227,563 @@ http://localhost:8080/api/tutor/90c87b51-422c-4a4e-83ca-eb73fdc1932a
 ### ------------ POST ------------
 FetchByEmail(login)
 http://localhost:8080/api/tutor
+
 {
+
   "email": "sandraReg@gmail.com",
+  
   "senha": "523453466256"
+  
 }
 
+
 Create
+
 http://localhost:8080/api/tutor/login
+
 {
+
   "nome": "Yuki Fernandes",
+  
   "dataNascimento": "2009-05-21",
+  
   "telefone": "11950282323",
+  
   "sexo": "M",
+  
   "email": "yukiHotoru@gmail.com",
+  
   "senha": "1029384756"
+  
 }
 
 
 ### ------------ PATCH ------------
 update 
+
 http://localhost:8080/api/tutor/90c87b51-422c-4a4e-83ca-eb73fdc1932a
+
 {
+
   "email": "sandraRegina@gmail.com"
+  
   "telefone": "11945414016",
+  
   "senha": "Senha12345",
+  
   "urlImg": "pathImage/sandra.png"
+  
 }
 
 ### ------------ DELETE ------------
 http://localhost:8080/api/tutor/90c87b51-422c-4a4e-83ca-eb73fdc1932a
-
 
 
 ## RELATÓRIO
+
 ### ------------ GET ------------
+
 fetchAll
+
 http://localhost:8080/api/relatorio/listar?page=0&size=10
 
 fetchById
+
 http://localhost:8080/api/relatorio/3fa6e8fb-9b5e-48d8-b079-9eb40139766a
 
 
 ### ------------ POST ------------
+
 create
+
 http://localhost:8080/api/relatorio
+
 {
+
   "observacao": "Paciente apresentou episódios de febre.",
+  
   "idHist": "0b5920dc-c674-4df9-a1b2-d94acb659443",
+  
   "idMedico": "47d44b69-bfa6-4c9e-a01a-bb5698596797"
+  
 }
 
 ### ------------ PATCH ------------
+
 http://localhost:8080/api/relatorio/3fa6e8fb-9b5e-48d8-b079-9eb40139766a
+
 {
+
   "observacao": "Paciente apresentou episódios de febre e fadiga durante a consulta."
+  
 }
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/relatorio/3fa6e8fb-9b5e-48d8-b079-9eb40139766a
 
 ## RECEITA
+
 ### ------------ GET ------------
+
 fetchAll
+
 http://localhost:8080/api/receita/listar?page=0&size=10
 
 fetchById
+
 http://localhost:8080/api/receita/0efc7b5b-1f83-476e-9fc1-7be4360ab9c0
 
 
 ### ------------ POST ------------
+
 create
+
 http://localhost:8080/api/receita
+
 {
+
   "nome": "Receita reduzida hormonal",
+  
   "validade": "2026-07-14",
+  
   "idMedico": "47d44b69-bfa6-4c9e-a01a-bb5698596797",
-  "idMedicamentos": [
-    "9be6cf8f-9e06-4dea-b767-6de2c552536d"
-  ]
+  
+  "idMedicamentos": ["9be6cf8f-9e06-4dea-b767-6de2c552536d" ]
+  
 }
+
 ### ------------ PATCH ------------
+
 http://localhost:8080/api/relatorio/3fa6e8fb-9b5e-48d8-b079-9eb40139766a
+
 {
+
   "observacao": "Paciente apresentou episódios de febre e fadiga durante a consulta."
+
 }
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/receita/0efc7b5b-1f83-476e-9fc1-7be4360ab9c0
 
 ## PRONTUÁRIO
+
 ### ------------ GET ------------
+
 fetchAll
+
 http://localhost:8080/api/prontuario/listar?page=0&size=10
 
 fetchById
+
 http://localhost:8080/api/prontuario/20407246-c6c1-476c-b567-0f65cb685172
 
 
 ### ------------ POST ------------
+
 create
+
 http://localhost:8080/api/prontuario
+
 {
+
   "data": "2026-05-15",
+  
   "descricao": "Paciente apresentou melhoras sobre a alteração hormonal. Não é mais necessário controle contínuo.",
+  
   "idMedico": "47d44b69-bfa6-4c9e-a01a-bb5698596797",
+  
   "idHistorico": "64c6b86a-17d6-4693-912c-331d83ae1c06",
-  "idExames": [
-    "abd73853-85dd-43b8-934d-febe4cf1f661"
-  ],
+  
+  "idExames": ["abd73853-85dd-43b8-934d-febe4cf1f661"],
+  
   "idReceitas": []
+  
 }
 
-
 ### ------------ PATCH ------------
+
 http://localhost:8080/api/prontuario/20407246-c6c1-476c-b567-0f65cb685172
+
 {
+
   "descricao": "Paciente apresentou alteração hormonal. Necessário controle contínuo."
+  
 }
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/prontuario/20407246-c6c1-476c-b567-0f65cb685172
 
 ## PET 
+
 ### ------------ GET ------------
+
 fetchAll
+
 http://localhost:8080/api/pet/listar?page=0&size=10
 
 fetchMenuAll
+
 http://localhost:8080/api/pet/menu/listar?page=0&size=10
 
 fetchById
+
 http://localhost:8080/api/pet/1405e532-7085-4a07-80e8-5d36e4d35c44
 
-
 ### ------------ POST ------------
+
 create
+
 http://localhost:8080/api/prontuario
 
 {
+
   "nome": "Robson",
+  
   "dataNasc": "2023-01-17",
+  
   "sexo": "M",
+  
   "urlImg": "pathImage/robson.png",
+  
   "status": "ATIVO",
+  
   "porte": "grande",
+  
   "especie": "cachorro",
+  
   "raca": "bordercollie",
+  
   "pelagem": "branco e preto"
+  
 }
 
 ### ------------ PATCH ------------
+
 updateImage
+
 http://localhost:8080/api/pet/imagem/1405e532-7085-4a07-80e8-5d36e4d35c44
+
 {
+
   "urlImg": "pathImage/olimpio.img"
+  
 }
 
 
 updateStatus
+
 http://localhost:8080/api/pet/status/1405e532-7085-4a07-80e8-5d36e4d35c44
+
 {
+
   "statusEnum": "ATIVO"
+  
 }
+
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/pet/1405e532-7085-4a07-80e8-5d36e4d35c44
 
 ## MÉDICO
+
 ### ------------ GET ------------
+
 FetchAll
+
 http://localhost:8080/api/medico/listar?page=0&size=10
 
 FetchById
+
 http://localhost:8080/api/medico/47d44b69-bfa6-4c9e-a01a-bb5698596797
 
 
 ### ------------ POST ------------
+
 FetchByEmail(login)
+
 http://localhost:8080/api/medico/login
+
 {
+
   "email": "renatoGon@gmail.com",
+  
   "senha": "08945706"
+  
 }
 
 
 Create
+
 http://localhost:8080/api/medico
+
 {
+
   "nome": "Eliane Barbosa",
+  
   "dataNascimento": "1987-09-19",
+  
   "telefone": "11992846192",
+  
   "email": "enailEBarb@gmail.com",
+  
   "sexo": "F",
+  
   "senha": "0192837465",
+  
   "especialidade": "Endocrinologia",
+  
   "urlImg": "pathImage/eliane.png"
+  
 }
 
 
 ### ------------ PATCH ------------
+
 update 
+
 http://localhost:8080/api/medico/47d44b69-bfa6-4c9e-a01a-bb5698596797
+
 {
+
   "email": "renatogoncalves@gmail.com",
+  
   "urlImg": "pathImage/renato.png"
+  
 }
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/medico/47d44b69-bfa6-4c9e-a01a-bb5698596797
 
 ## MEDICAMENTO 
+
 ### ------------ GET ------------
+
 FetchAll
+
 http://localhost:8080/api/medicamentos/listar?page=0&size=10
 
 FetchById
+
 http://localhost:8080/api/medicamentos/9be6cf8f-9e06-4dea-b767-6de2c552536d
 
 ### ------------ POST ------------
+
 Create
+
 http://localhost:8080/api/medicamentos
+
 {
+
   "nome": "Dipirona",
+  
   "dosagem": "1g",
+  
   "instrucao": "Tomar em caso de dores"
+  
 }
 
 
 ### ------------ PATCH ------------
+
 update 
+
 http://localhost:8080/api/medicamentos/9be6cf8f-9e06-4dea-b767-6de2c552536d
+
 {
+
   "dosagem": "1g",
+  
   "instrucao": "Tomar de 12 em 12 horas"
+  
 }
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/medicamentos/9be6cf8f-9e06-4dea-b767-6de2c552536d
 
 ## HISTÓRICO 
+
 ### ------------ GET ------------
+
 FetchAll
+
 http://localhost:8080/api/historico/listar?page=0&size=10
 
 FetchById
+
 http://localhost:8080/api/historico/0b5920dc-c674-4df9-a1b2-d94acb659443
 
 ### ------------ POST ------------
+
 create
+
 * COLOCAR NOVO ID DE PET -> criar
+
 {
+
   "data": "2024-06-20",
+  
   "status": "ATIVO",
-  "idProntuarios": [
-    "20407246-c6c1-476c-b567-0f65cb685172"
-  ],
+  
+  "idProntuarios": ["20407246-c6c1-476c-b567-0f65cb685172"],
 
   "idPet": ""
+  
 }
 
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/historico/0b5920dc-c674-4df9-a1b2-d94acb659443
 
 ## EXAME 
+
 ### ------------ GET ------------
+
 FetchAll
+
 http://localhost:8080/api/exame/listar?page=0&size=10
 
 FetchById
+
 http://localhost:8080/api/exame/ad257493-f6d3-4dc4-be4a-cc3c25fba540
 
 ### ------------ POST ------------
+
 Create
+
 http://localhost:8080/api/exame
+
 {
+
   "nome": "Hemograma",
+  
   "data": "2026-12-10",
+  
   "tipo": "Exame de sangue",
+  
   "idMedico": "47d44b69-bfa6-4c9e-a01a-bb5698596797",
+  
   "idProntuario": "20407246-c6c1-476c-b567-0f65cb685172"
+  
 }
+
 ### ------------ PATCH ------------
+
 update 
+
 http://localhost:8080/api/exame/ad257493-f6d3-4dc4-be4a-cc3c25fba540
+
 {
+
   "nome": "Teste de urina",
+  
   "data": "2025-01-07",
+  
   "tipo": "Exame parasitológico"
+  
 }
 
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/exame/ad257493-f6d3-4dc4-be4a-cc3c25fba540
 
 ## ENDEREÇO
+
 ### ------------ GET ------------
+
 FetchAll
+
 http://localhost:8080/api/endereco/listar?page=0&size=10
 
 FetchById
+
 http://localhost:8080/api/endereco/174bcf8c-b2ce-496c-bc35-710813a65836
 
 ### ------------ POST ------------
+
 Create
+
 http://localhost:8080/api/endereco
+
 {
+
   "cep": "04347010",
+  
   "complemento": "Casa A"
+  
 }
+
 ### ------------ PATCH ------------
+
 update 
+
 http://localhost:8080/api/endereco/174bcf8c-b2ce-496c-bc35-710813a65836
+
 {
+
   "cep": "01100111"
+  
 }
+
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/endereco/174bcf8c-b2ce-496c-bc35-710813a65836
+
 OBS: Não é possível deletar um endereço associado à uma clínica
 
 ## CLÍNICA
+
 ### ------------ GET ------------
+
 FetchAll
+
 http://localhost:8080/api/clinica/listar?page=0&size=10
 
 FetchById
+
 http://localhost:8080/api/clinica/7d4cc917-cc9f-45b9-95ab-fe195014e898
 
 ### ------------ POST ------------
-Create
-http://localhost:8080/api/clinica
-{
-  "cnpj": "12345678912345",
-  "nome": "clinica passinhos",
 
-  "idEndereco": ""
-}
-OBS: Não é possivel criar uma clinica com um endereço ja associado a outra clinica
-### ------------ PATCH ------------
-update 
-http://localhost:8080/api/clinica/7d4cc917-cc9f-45b9-95ab-fe195014e898 
+Create
+
+http://localhost:8080/api/clinica
+
 {
-  "nome": "Clinica petzinhos",
-  "idEndereco": "174bcf8c-b2ce-496c-bc35-710813a65836"
+
+  "cnpj": "12345678912345",
+  
+  "nome": "clinica passinhos",
+  
+  "idEndereco": ""
+  
 }
+
+OBS: Não é possivel criar uma clinica com um endereço ja associado a outra clinica
+
+### ------------ PATCH ------------
+
+update 
+
+http://localhost:8080/api/clinica/7d4cc917-cc9f-45b9-95ab-fe195014e898 
+
+{
+
+  "nome": "Clinica petzinhos",
+  
+  "idEndereco": "174bcf8c-b2ce-496c-bc35-710813a65836"
+  
+}
+
 ### ------------ DELETE ------------
+
 http://localhost:8080/api/endereco/174bcf8c-b2ce-496c-bc35-710813a65836
+
 OBS: Não é possível deletar um endereço associado à uma clínica
 
 
